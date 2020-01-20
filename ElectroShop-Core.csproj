@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>ElectroShop_Core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="OdeToCode.UseNodeModules" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="node_modules\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\clientapp\assets\.gitkeep" />
+    <None Include="wwwroot\clientapp\assets\images\hotdeal.png" />
+    <None Include="wwwroot\clientapp\assets\images\logo.png" />
+    <None Include="wwwroot\clientapp\assets\images\product01.png" />
+    <None Include="wwwroot\clientapp\assets\images\product02.png" />
+    <None Include="wwwroot\clientapp\assets\images\product03.png" />
+    <None Include="wwwroot\clientapp\assets\images\product04.png" />
+    <None Include="wwwroot\clientapp\assets\images\product05.png" />
+    <None Include="wwwroot\clientapp\assets\images\product06.png" />
+    <None Include="wwwroot\clientapp\assets\images\product07.png" />
+    <None Include="wwwroot\clientapp\assets\images\product08.png" />
+    <None Include="wwwroot\clientapp\assets\images\product09.png" />
+    <None Include="wwwroot\clientapp\assets\images\shop01.png" />
+    <None Include="wwwroot\clientapp\assets\images\shop02.png" />
+    <None Include="wwwroot\clientapp\assets\images\shop03.png" />
+    <None Include="wwwroot\clientapp\assets\js\bootstrap.min.js" />
+    <None Include="wwwroot\clientapp\assets\js\jquery.min.js" />
+    <None Include="wwwroot\clientapp\assets\js\jquery.zoom.min.js" />
+    <None Include="wwwroot\clientapp\assets\js\main.js" />
+    <None Include="wwwroot\clientapp\assets\js\nouislider.min.js" />
+    <None Include="wwwroot\clientapp\assets\js\slick.min.js" />
+    <None Include="wwwroot\clientapp\assets\styles\bootstrap.min.css" />
+    <None Include="wwwroot\clientapp\assets\styles\font-awesome.min.css" />
+    <None Include="wwwroot\clientapp\assets\styles\nouislider.min.css" />
+    <None Include="wwwroot\clientapp\assets\styles\slick-theme.css" />
+    <None Include="wwwroot\clientapp\assets\styles\slick.css" />
+    <None Include="wwwroot\clientapp\assets\styles\style.css" />
+  </ItemGroup>
+
+</Project>

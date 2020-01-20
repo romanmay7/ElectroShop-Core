@@ -1,0 +1,47 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ElectroShop:@ViewBag.Title</title>
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="~/clientapp/assets/styles/bootstrap.min.css" />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="~/clientapp/assets/styles/slick.css" />
+    <link type="text/css" rel="stylesheet" href="~/clientapp/assets/styles/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="~/clientapp/assets/styles/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="~/clientapp/assets/styles/style.css" />
+    <base href="/">
+</head>
+<body>
+
+        @RenderBody()
+
+
+
+    <!-- javascript generally has stuff that manipulates contents on the website. hence load it towards the end of the page. -->
+    <environment names="Development">
+
+    </environment>
+    <environment names="Staging,Production">
+
+    </environment>
+    @* scripts section is not required. if one of the pages creates a section called scripts, then put it here in the layout page*@
+          @RenderSection("scripts",false)
+        </body>
+
+        </html>
