@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {ProductService} from './product.service';
+import { ProductService } from './product.service';
+import { OrderService } from './order.service';
 import { Item } from '../entities/item.entity';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class ItemService {
   public total:number=0;
   
   
-  constructor(private productService:ProductService) { }
+    constructor(private productService: ProductService) { }
 
   async loadCart() {
     this.total=0;
@@ -81,5 +83,7 @@ async remove(id:string) {
 
 }
 
+//Checkout Orders by parsing items from the Cart tinto Order object and sending it to API
+   
 
 }

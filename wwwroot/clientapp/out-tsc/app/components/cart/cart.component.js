@@ -1,10 +1,12 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
 let CartComponent = class CartComponent {
-    constructor(activatedRoute, productService, itemService) {
+    constructor(activatedRoute, router, productService, itemService, order_service) {
         this.activatedRoute = activatedRoute;
+        this.router = router;
         this.productService = productService;
         this.itemService = itemService;
+        this.order_service = order_service;
         this.items = [];
         this.total = 0;
     }
@@ -56,6 +58,16 @@ let CartComponent = class CartComponent {
                 this.loadCart();
             }
         }));
+    }
+    onOrderCheckout() {
+        if (this.order_service.loginRequired) {
+            //Force Login
+            this.router.navigate(["login"]);
+        }
+        else {
+            //Go to checkout
+            this.router.navigate(["checkout"]);
+        }
     }
 };
 CartComponent = tslib_1.__decorate([

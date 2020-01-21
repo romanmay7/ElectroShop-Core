@@ -14,6 +14,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { LoginComponent } from './components/login/login.component';
 let AppModule = class AppModule {
 };
 AppModule = tslib_1.__decorate([
@@ -27,7 +29,9 @@ AppModule = tslib_1.__decorate([
             FooterComponent,
             ContactComponent,
             AboutComponent,
-            FilterPipe
+            FilterPipe,
+            CheckoutComponent,
+            LoginComponent
         ],
         imports: [
             BrowserModule,

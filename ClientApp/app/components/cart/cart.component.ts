@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import { Router } from '@angular/router';
 
-import {ItemService} from '../../services/item.service';
+import { ItemService } from '../../services/item.service';
+import { OrderService } from '../../services/order.service';
 import { Product } from '../../entities/product.entity';
 import {Item} from '../../entities/item.entity'; 
 import {ProductService} from '../../services/product.service';
@@ -20,9 +22,11 @@ export class CartComponent implements OnInit {
 
 
   constructor(
-    public activatedRoute:ActivatedRoute,
-    public productService:ProductService,
-    public itemService:ItemService
+      public activatedRoute: ActivatedRoute,
+      private router: Router,
+      public productService:ProductService,
+      public itemService: ItemService,
+      private order_service: OrderService
   ) { }
 
     ngOnInit() {
@@ -77,7 +81,15 @@ export class CartComponent implements OnInit {
 
   }
 
-
+    onOrderCheckout() {
+        if (this.order_service.loginRequired) {
+            //Force Login
+            this.router.navigate(["login"])
+        } else {
+            //Go to checkout
+            this.router.navigate(["checkout"])
+        }
+    }
 
 }
 
