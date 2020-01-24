@@ -2,9 +2,10 @@
 export class Review 
 {
  id:string;
- reviewer_name:string;
+ reviewerName:string;
  date:string;
  content:string;
- rating:number;
+ rating: number;
+ email:string;
 }
 

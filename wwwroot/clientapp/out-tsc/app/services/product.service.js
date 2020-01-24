@@ -2,7 +2,6 @@ import * as tslib_1 from "tslib";
 //import { map } from "rxjs/operators";
 //import { Observable } from "rxjs";
 import { Injectable } from '@angular/core';
-//import { Review } from '../entities/review.entity';
 let ProductService = class ProductService {
     constructor(http) {
         this.http = http;

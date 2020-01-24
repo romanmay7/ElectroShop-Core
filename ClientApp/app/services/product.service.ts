@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 //import { Observable } from "rxjs";
 import { Injectable } from '@angular/core';
 import { Product } from '../entities/product.entity';
-//import { Review } from '../entities/review.entity';
 
 
 @Injectable({
@@ -14,8 +13,8 @@ export class ProductService {
   public products:Product[]=[];
   public term:any;
   public selectedCategory:any;
-  public search_results:Product[];
- 
+  public search_results: Product[];
+
   
     constructor(private http: HttpClient)
     {
@@ -30,6 +29,7 @@ export class ProductService {
         this.products = await this.http.get<Product[]>("/api/products").toPromise();
  
      }
+
 
     async findAll(): Promise<Product[]>{
         await this.loadProducts();

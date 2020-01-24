@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectroShop_Core.Migrations
 {
     [DbContext(typeof(ElectroshopContext))]
-    [Migration("20200120224903_MyInitialMigration")]
+    [Migration("20200124213227_MyInitialMigration")]
     partial class MyInitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -108,6 +108,9 @@ namespace ElectroShop_Core.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");

@@ -136,5 +136,19 @@ namespace ElectroShop_Core.Data
 
             AddEntity(newOrder);
         }
+
+        public IEnumerable<Review> GetReviewsByProductId(int id)
+        {
+            Product prod= _context.Products.Where(p => p.Id == id).FirstOrDefault();
+            if (prod != null)
+                return prod.Reviews;
+            else return null;
+        }
+
+        public void AddReview(Review review)
+        {
+            review.Product = _context.Products.Find(review.Product.Id);
+            AddEntity(review);
+        }
     }
 }

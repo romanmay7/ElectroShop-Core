@@ -19,5 +19,7 @@ namespace ElectroShop_Core.Data
         bool SaveAll();
         void AddEntity(object model);
         void AddOrder(Order newOrder);
+        IEnumerable<Review> GetReviewsByProductId(int id);
+        void AddReview(Review model);
     }
 }

@@ -61,6 +61,7 @@ namespace ElectroShop_Core.Migrations
                     Date = table.Column<DateTime>(nullable: false),
                     Content = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
                     ProductId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

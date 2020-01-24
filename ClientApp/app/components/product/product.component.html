@@ -180,7 +180,7 @@
                     <ul class="reviews" *ngFor="let review of selected_product.reviews">
                         <li>
                             <div class="review-heading">
-                                <h5 class="name">{{review.reviewer_name}}</h5>
+                                <h5 class="name">{{review.reviewerName}}</h5>
                                 <p class="date">{{review.date}}</p>
                                 
                                 <span class="rating-stars" *ngFor="let i of [].constructor(review.rating)">
@@ -213,22 +213,31 @@
             <!-- Review Form -->
             <div class="col-md-3">
                 <div id="review-form">
-                    <form class="review-form">
-                        <input class="input" type="text" placeholder="Your Name">
-                        <input class="input" type="email" placeholder="Your Email">
-                        <textarea class="input" placeholder="Your Review"></textarea>
-                        <div class="input-rating">
-                            <span>Your Rating: </span>
-                            <div class="stars">
-                                <input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-                                <input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-                                <input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-                                <input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-                                <input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
-                            </div>
+                    <form class="review-form" [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+                        <div class="form-group">
+                            <input class="input" type="text" placeholder="Your Name" formControlName="reviewer_name">
                         </div>
-                        <button class="primary-btn">Submit</button>
-                    </form>
+                        <div class="form-group">
+                            <input class="input" type="email" placeholder="Your Email" formControlName="email">
+                         </div>
+                        <div class="form-group">
+                            <textarea class="input" placeholder="Your Review" formControlName="content"></textarea>
+                         </div>
+                         
+                            <div class="input-rating" >
+                                <span>Your Rating: </span>
+                                <div class="stars">
+                                    <input id="star5" name="rating" value="5" type="radio" formControlName="rating"><label for="star5"></label>
+                                    <input id="star4" name="rating" value="4" type="radio" formControlName="rating"><label for="star4"></label>
+                                    <input id="star3" name="rating" value="3" type="radio" formControlName="rating"><label for="star3" ></label>
+                                    <input id="star2" name="rating" value="2" type="radio" formControlName="rating"><label for="star2" ></label>
+                                    <input id="star1" name="rating" value="1" type="radio" formControlName="rating"><label for="star1" ></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button class="primary-btn">Submit</button>
+                            </div>
+                      </form>
                 </div>
             </div>
             <!-- /Review Form -->
