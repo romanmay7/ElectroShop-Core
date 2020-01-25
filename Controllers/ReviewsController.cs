@@ -21,11 +21,11 @@ namespace ElectroShop_Core.Controllers
     public class ReviewsController : Controller
     {
         private readonly IElectroShopRepository _repository;
-        private readonly ILogger<OrdersController> _logger;
+        private readonly ILogger<ReviewsController> _logger;
         private readonly IMapper _mapper;
 
 
-        public ReviewsController(IElectroShopRepository repository, ILogger<OrdersController> logger, IMapper mapper)
+        public ReviewsController(IElectroShopRepository repository, ILogger<ReviewsController> logger, IMapper mapper)
         {
             _repository = repository;
             _logger = logger;

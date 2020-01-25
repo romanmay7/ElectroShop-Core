@@ -152,7 +152,7 @@
             <div class="col-md-3">
                 <div id="rating">
                     <div class="rating-avg">
-                        <span>{{productService.averageRating(selected_product)}}</span>
+                        <span>{{productService.round(productService.averageRating(selected_product))}}</span>
                         <div class="rating-stars" *ngFor="let i of [].constructor(productService.round(productService.averageRating(selected_product)))">
                             <i class="fa fa-star"></i>
 

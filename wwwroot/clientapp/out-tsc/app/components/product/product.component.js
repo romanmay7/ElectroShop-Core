@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { HttpHeaders } from "@angular/common/http";
 import { ReviewModel } from '../../entities/reviewmodel.entity';
 let ProductComponent = class ProductComponent {
-    constructor(productService, itemService, activatedRoute, http, fb) {
+    constructor(productService, itemService, activatedRoute, http, fb, router) {
         this.productService = productService;
         this.itemService = itemService;
         this.activatedRoute = activatedRoute;
         this.http = http;
         this.fb = fb;
+        this.router = router;
         this.reviewForm = this.fb.group({
             reviewer_name: [''],
             content: [''],
@@ -49,7 +50,12 @@ let ProductComponent = class ProductComponent {
         })
             .subscribe(
         //Refreshing Reviews List on Products page,after new review was submited by calling product Service
-        (response) => { this.productService.loadProducts(); console.log(response); }, (error) => console.log(error));
+        (response) => { this.UpdateUIafterReviewSubmit(); console.log(response); }, (error) => console.log(error));
+    }
+    UpdateUIafterReviewSubmit() {
+        alert("Review Submitted,Thank you");
+        this.router.navigate(['/shop']);
+        //console.log("Implement method to refresh UI");
     }
 };
 ProductComponent = tslib_1.__decorate([

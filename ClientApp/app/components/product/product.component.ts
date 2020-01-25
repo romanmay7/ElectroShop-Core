@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup,FormControl } from "@angular/forms";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { ReviewModel } from '../../entities/reviewmodel.entity';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -27,6 +28,7 @@ export class ProductComponent implements OnInit {
         public activatedRoute: ActivatedRoute,
         private http: HttpClient,
         public fb: FormBuilder,
+        private router: Router
 
     ) 
         {
@@ -63,6 +65,7 @@ export class ProductComponent implements OnInit {
         review.rating = this.reviewForm.get('rating').value;
         review.email = this.reviewForm.get('email').value;
 
+
         return this.http.post("api/reviews", review,
             {
                 headers: new HttpHeaders()
@@ -71,14 +74,17 @@ export class ProductComponent implements OnInit {
             })
             .subscribe(
                  //Refreshing Reviews List on Products page,after new review was submited by calling product Service
-                (response) => { this.UpdateUIafterReviewSubmit(); console.log(response); },
+                (response) => { this.UpdateUIafterReviewSubmit( ); console.log(response); },
                 (error) => console.log(error)
         )
      
         
     }
-    public UpdateUIafterReviewSubmit() {
-        console.log("Implement method to refresh UI");
+    public UpdateUIafterReviewSubmit( ) {
+        alert("Review Submitted,Thank you");
+        this.router.navigate(['/shop']);
+       
+        //console.log("Implement method to refresh UI");
 
     }
 }
