@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
         this.oservice.login(this.creds)
             .subscribe(success => {
                 if (success) {
+                    //Save Username in Items Service to track logged in user
+                    this.iservice.username = this.creds.username;
+                    this.iservice.loggedIn = true;
                     if (this.iservice.items.length == 0) {
                         this.router.navigate(["shop"]);
                     } else {

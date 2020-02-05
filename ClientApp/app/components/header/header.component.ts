@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ItemService} from '../../services/item.service';
 import { Item } from '../../entities/item.entity';
 import { ProductService } from '../../services/product.service';
+import { OrderService } from '../../services/order.service';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 
 @Component({
@@ -16,7 +18,7 @@ export class HeaderComponent implements OnInit {
   public loadCart():void{};
   //public search_term:any;
 
-  constructor(public itemService:ItemService,public productService:ProductService,) { }
+    constructor(public itemService: ItemService, public productService: ProductService, private orderService: OrderService, private http: HttpClient) { }
 
   ngOnInit() {
     // this.items=this.itemService.items;
@@ -29,5 +31,14 @@ export class HeaderComponent implements OnInit {
 
 
   }
+
+    logOut() {
+        this.itemService.username = "";
+        this.orderService.resetToken();
+        this.itemService.loggedIn = false;
+        console.log("LogOUt");
+        this.http.get("/Account/Logout");
+
+    }
 
 }

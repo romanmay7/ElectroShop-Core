@@ -74,7 +74,7 @@ namespace ElectroShop_Core.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
-            return RedirectToAction("Index", "App");
+            return RedirectToAction("Shop", "App");
         }
 
         [HttpPost]

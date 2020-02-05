@@ -22,8 +22,8 @@ let CheckoutComponent = class CheckoutComponent {
             }
         }, err => this.errorMessage = "Failed to Save Order");
     }
-    get subtotal() {
-        return _.sum(_.map(this.itemService, i => i.unitPrice * i.quantity));
+    subtotal() {
+        return _.sum(_.map(this.itemService.items, i => i.product.price * i.quantity));
     }
     ;
 };

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 let ItemService = class ItemService {
     constructor(productService) {
         this.productService = productService;
+        this.loggedIn = false;
         this.items = [];
         this.total = 0;
     }

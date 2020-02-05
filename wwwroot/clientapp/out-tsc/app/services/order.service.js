@@ -43,6 +43,9 @@ let OrderService = class OrderService {
             return true;
         }));
     }
+    resetToken() {
+        this.token = "";
+    }
 };
 OrderService = tslib_1.__decorate([
     Injectable({

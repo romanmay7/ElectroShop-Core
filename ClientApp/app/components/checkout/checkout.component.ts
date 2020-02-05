@@ -38,8 +38,8 @@ export class CheckoutComponent implements OnInit {
             }, err => this.errorMessage = "Failed to Save Order");
     }
 
-    get subtotal(): number {
-        return _.sum(_.map(this.itemService, i => i.unitPrice * i.quantity));
+    subtotal(): number {
+         return _.sum(_.map(this.itemService.items, i => i.product.price * i.quantity));
     };
 
 }
