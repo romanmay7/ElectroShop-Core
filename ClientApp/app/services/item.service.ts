@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ProductService } from './product.service';
-
+import * as _ from "lodash";
 import { Item } from '../entities/item.entity';
 
 
@@ -84,10 +84,10 @@ async remove(id:string) {
 
 }
 
+    subtotal(): number {
+        return _.sum(_.map(this.items, i => i.product.price * i.quantity));
+    };
 
-
-
-//Checkout Orders by parsing items from the Cart into Order object and sending it to API
    
 
 }

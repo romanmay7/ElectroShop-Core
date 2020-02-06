@@ -1,6 +1,5 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
-import * as _ from "lodash";
 let CheckoutComponent = class CheckoutComponent {
     constructor(activatedRoute, router, productService, itemService, orderService) {
         this.activatedRoute = activatedRoute;
@@ -22,10 +21,6 @@ let CheckoutComponent = class CheckoutComponent {
             }
         }, err => this.errorMessage = "Failed to Save Order");
     }
-    subtotal() {
-        return _.sum(_.map(this.itemService.items, i => i.product.price * i.quantity));
-    }
-    ;
 };
 CheckoutComponent = tslib_1.__decorate([
     Component({

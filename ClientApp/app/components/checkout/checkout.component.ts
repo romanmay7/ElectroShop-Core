@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
-import * as _ from "lodash";
 import { ItemService } from '../../services/item.service';
 import { OrderService } from '../../services/order.service';
 import { Product } from '../../entities/product.entity';
@@ -38,8 +37,5 @@ export class CheckoutComponent implements OnInit {
             }, err => this.errorMessage = "Failed to Save Order");
     }
 
-    subtotal(): number {
-         return _.sum(_.map(this.itemService.items, i => i.product.price * i.quantity));
-    };
 
 }

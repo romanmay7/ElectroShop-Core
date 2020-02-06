@@ -1,5 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Injectable } from '@angular/core';
+import * as _ from "lodash";
 let ItemService = class ItemService {
     constructor(productService) {
         this.productService = productService;
@@ -72,6 +73,10 @@ let ItemService = class ItemService {
             yield this.loadCart();
         });
     }
+    subtotal() {
+        return _.sum(_.map(this.items, i => i.product.price * i.quantity));
+    }
+    ;
 };
 ItemService = tslib_1.__decorate([
     Injectable({
