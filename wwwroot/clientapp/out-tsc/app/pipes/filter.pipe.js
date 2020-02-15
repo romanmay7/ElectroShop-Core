@@ -14,9 +14,9 @@ let FilterPipe = class FilterPipe {
         //check if search term is undefined
         if (term === undefined)
             return categorized_products; //return all products
-        //else filter by name
+        //else filter by title
         return categorized_products.filter((product) => {
-            return product.name.toLowerCase().includes(term.toLowerCase());
+            return product.title.toLowerCase().includes(term.toLowerCase());
         });
     }
 };

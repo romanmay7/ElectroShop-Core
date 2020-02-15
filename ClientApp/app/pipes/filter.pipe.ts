@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(products: Product[], term:any,selected_category:any): any {
     
-     var categorized_products;
+    var categorized_products:Product[];
     //filter by category
     if(selected_category==="All Categories")
     categorized_products=products;
@@ -22,10 +22,10 @@ export class FilterPipe implements PipeTransform {
     if(term===undefined)
     return categorized_products;//return all products
     
+    //else filter by title
+      return categorized_products.filter((product) => {
 
-    //else filter by name
-    return categorized_products.filter((product)=>{
-      return product.name.toLowerCase().includes(term.toLowerCase());
+      return product.title.toLowerCase().includes(term.toLowerCase());
     })
   }
 

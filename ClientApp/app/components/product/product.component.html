@@ -47,7 +47,7 @@
                 <!-- Product details -->
                 <div class="col-md-5">
                     <div class="product-details">
-                        <h2 class="product-name">{{selected_product.name}}</h2>
+                        <h2 class="product-name">{{selected_product.title}}</h2>
                         <div>
 
                             <div class="product-rating" *ngFor="let i of [].constructor(productService.round(productService.averageRating(selected_product)))">
@@ -265,7 +265,7 @@
               </div>
               <div class="product-body">
                 <p class="product-category">Category:{{product.category}}</p>
-                <h3 class="product-name"><a [routerLink]="['/product',{id:product.id}]">{{product.name}}</a></h3>
+                <h3 class="product-name"><a [routerLink]="['/product',{id:product.id}]">{{product.title}}</a></h3>
                 <h4 class="product-price">{{product.price}}$ <del class="product-old-price">{{productService.round(product.price*100/70)}}$</del></h4>
   
                 <span class="product-rating" *ngFor="let i of [].constructor(productService.round(productService.averageRating(product)))">
