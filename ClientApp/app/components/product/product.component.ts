@@ -4,7 +4,7 @@ import { Product } from '../../entities/product.entity';
 import {ProductService} from '../../services/product.service';
 import {ItemService} from '../../services/item.service';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup,FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup,FormControl, Validators } from "@angular/forms";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { ReviewModel } from '../../entities/reviewmodel.entity';
@@ -32,13 +32,13 @@ export class ProductComponent implements OnInit {
 
     ) 
         {
-            this.reviewForm = this.fb.group
-           ({
-               reviewer_name: [''],
-               content: [''],
-               rating: [''],
-               email:['']
-            })
+        this.reviewForm = this.fb.group
+            ({
+                reviewer_name: ['',Validators.required],
+                content: ['',[Validators.required, Validators.minLength(5)]],
+                rating: ['', Validators.required],
+                email: ['', [Validators.required, Validators.email]]
+            });
         }
 
   async ngOnInit() {
@@ -50,8 +50,14 @@ export class ProductComponent implements OnInit {
     });
     
   }
+    // convenience getter for easy access to form fields
+    get f() { return this.reviewForm.controls; }
 
     public submitReview() {
+        if (this.reviewForm.invalid) {
+            //alert('NO SUCCESS!! :-)\n\n' + JSON.stringify(this.reviewForm.value))
+            return;
+        }
         //console.log("Submitting");
         //var formData: any = new FormData();
         //formData.append("reviewer_name", this.reviewForm.get('reviewer_name').value);

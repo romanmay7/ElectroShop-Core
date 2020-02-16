@@ -8,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  form: FormGroup;
+    //contactForm: FormGroup;
+    public contact_form = {
+        fname: "",
+        lname: "",
+        email: "",
+        comment: ""
+    }
 
   constructor() { }
 
@@ -16,8 +22,8 @@ export class ContactComponent implements OnInit {
 
   }
 
-  onSubmit(){
-    alert("Form Submited");
+    onSubmit() {
+        alert('Form Submited!! :-)\n\n' + JSON.stringify(this.contact_form))
   }
 
 

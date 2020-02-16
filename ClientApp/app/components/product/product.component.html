@@ -213,31 +213,45 @@
             <!-- Review Form -->
             <div class="col-md-3">
                 <div id="review-form">
-                    <form class="review-form" [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+                    <form class="review-form"  [formGroup]="reviewForm" (ngSubmit)="submitReview()">
                         <div class="form-group">
-                            <input class="input" type="text" placeholder="Your Name" formControlName="reviewer_name">
+                            <input class="form-control" type="text" placeholder="Your Name" formControlName="reviewer_name" required>
+                            <div *ngIf="f.reviewer_name.errors" class="text-danger">
+                                <div *ngIf="f.reviewer_name.errors.required">Reviewer is required</div>
+                            </div>
                         </div>
                         <div class="form-group">
-                            <input class="input" type="email" placeholder="Your Email" formControlName="email">
-                         </div>
+                            <input class="form-control" type="email" placeholder="Your Email" formControlName="email" required>
+                            <div *ngIf="f.email.errors" class="text-danger">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
                         <div class="form-group">
-                            <textarea class="input" placeholder="Your Review" formControlName="content"></textarea>
-                         </div>
-                         
-                            <div class="input-rating" >
+                            <textarea class="form-control" placeholder="Your Review" formControlName="content" required></textarea>
+                            <div *ngIf="f.content.errors" class="text-danger">
+                                <div *ngIf=" f.content.errors.required">Some Content is required for Review</div>
+                                <div *ngIf="f.content.errors.minlength">Min Length must be 5 characters</div>
+                            </div>
+                        </div>
+
+                            <div class="form-group input-rating">
                                 <span>Your Rating: </span>
                                 <div class="stars">
                                     <input id="star5" name="rating" value="5" type="radio" formControlName="rating"><label for="star5"></label>
                                     <input id="star4" name="rating" value="4" type="radio" formControlName="rating"><label for="star4"></label>
-                                    <input id="star3" name="rating" value="3" type="radio" formControlName="rating"><label for="star3" ></label>
-                                    <input id="star2" name="rating" value="2" type="radio" formControlName="rating"><label for="star2" ></label>
-                                    <input id="star1" name="rating" value="1" type="radio" formControlName="rating"><label for="star1" ></label>
+                                    <input id="star3" name="rating" value="3" type="radio" formControlName="rating"><label for="star3"></label>
+                                    <input id="star2" name="rating" value="2" type="radio" formControlName="rating"><label for="star2"></label>
+                                    <input id="star1" name="rating" value="1" type="radio" formControlName="rating"><label for="star1"></label>
+                                    <div *ngIf="f.rating.errors" class="text-danger">
+                                        <div *ngIf="f.rating.errors.required">Please Rate!</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="primary-btn">Submit</button>
+                                <button class="primary-btn" >Submit</button>
                             </div>
-                      </form>
+</form>
                 </div>
             </div>
             <!-- /Review Form -->

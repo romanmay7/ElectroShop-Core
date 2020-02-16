@@ -1,5 +1,6 @@
 import * as tslib_1 from "tslib";
 import { Component } from '@angular/core';
+import { Validators } from "@angular/forms";
 import { HttpHeaders } from "@angular/common/http";
 import { ReviewModel } from '../../entities/reviewmodel.entity';
 let ProductComponent = class ProductComponent {
@@ -11,10 +12,10 @@ let ProductComponent = class ProductComponent {
         this.fb = fb;
         this.router = router;
         this.reviewForm = this.fb.group({
-            reviewer_name: [''],
-            content: [''],
-            rating: [''],
-            email: ['']
+            reviewer_name: ['', Validators.required],
+            content: ['', [Validators.required, Validators.minLength(5)]],
+            rating: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]]
         });
     }
     ngOnInit() {
@@ -30,7 +31,13 @@ let ProductComponent = class ProductComponent {
             }));
         });
     }
+    // convenience getter for easy access to form fields
+    get f() { return this.reviewForm.controls; }
     submitReview() {
+        if (this.reviewForm.invalid) {
+            //alert('NO SUCCESS!! :-)\n\n' + JSON.stringify(this.reviewForm.value))
+            return;
+        }
         //console.log("Submitting");
         //var formData: any = new FormData();
         //formData.append("reviewer_name", this.reviewForm.get('reviewer_name').value);

@@ -13,7 +13,7 @@
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="fname">First Name:</label>
 				  <div class="col-sm-10">          
-                    <input type="text" class="form-control" id="fname" placeholder="Enter First Name" required maxlength="30" minlength="2" ngModel name="fname" #fname="ngModel">
+                    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter First Name" required maxlength="30" minlength="2" [(ngModel)]="contact_form.fname" #fname="ngModel">
                   </div>
                 </div>
                  
@@ -31,7 +31,7 @@
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="lname">Last Name:</label>
 				  <div class="col-sm-10">          
-                        <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" required maxlength="30" minlength="2" ngModel name="lname" #lname="ngModel">
+                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter Last Name" required maxlength="30" minlength="2" [(ngModel)]="contact_form.lname" #lname="ngModel">
 				  </div>
                 </div>
                 
@@ -49,7 +49,7 @@
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="email">Email:</label>
 				  <div class="col-sm-10">           
-                  <input type="email" id="email" placeholder="Enter Your Email" class="form-control" name="email" ngModel name="email" required pattern="[^ @]*@[^ @]*" emailDomain #email="ngModel">
+                  <input type="email" id="email" placeholder="Enter Your Email" class="form-control" name="email"  required pattern="[^ @]*@[^ @]*" emailDomain [(ngModel)]="contact_form.email" #email="ngModel">
                   </div>
                 </div>
                 
@@ -65,7 +65,7 @@
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="comment">Comment:</label>
 				  <div class="col-sm-10">
-					<textarea class="form-control" rows="5" id="comment" name="comment" ngModel name="comment" required maxlength="30" minlength="10" #comment="ngModel"></textarea>
+					<textarea class="form-control" rows="5" id="comment" name="comment"  required maxlength="30" minlength="10" [(ngModel)]="contact_form.comment" #comment="ngModel"></textarea>
 				  </div>
                 </div>
                 
