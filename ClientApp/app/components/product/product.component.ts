@@ -20,7 +20,8 @@ export class ProductComponent implements OnInit {
   public products:Product[];
   public id:string;
   public selected_product:Product;
-  private reviewForm: FormGroup
+  private reviewForm: FormGroup;
+  public prodQuantity:number;
 
     constructor(
         public productService: ProductService,
@@ -47,7 +48,8 @@ export class ProductComponent implements OnInit {
        this.id=params['id'];
        if(this.id) { this.selected_product = await  this.productService.find(this.id)};
        this.productService.getProductsByCategory(this.selected_product.category);//get all product with same 'category' as selected product 
-    });
+     });
+      this.prodQuantity = 0;
     
   }
     // convenience getter for easy access to form fields
@@ -92,5 +94,15 @@ export class ProductComponent implements OnInit {
        
         //console.log("Implement method to refresh UI");
 
+    }
+
+    public IncProdQuantity() {
+        if (this.prodQuantity<25)
+        this.prodQuantity += 1;
+    }
+
+    public DecProdQuantity() {
+        if (this.prodQuantity >= 2)
+        this.prodQuantity -= 1;
     }
 }

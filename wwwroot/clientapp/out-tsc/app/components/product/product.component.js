@@ -29,6 +29,7 @@ let ProductComponent = class ProductComponent {
                 ;
                 this.productService.getProductsByCategory(this.selected_product.category); //get all product with same 'category' as selected product 
             }));
+            this.prodQuantity = 0;
         });
     }
     // convenience getter for easy access to form fields
@@ -63,6 +64,14 @@ let ProductComponent = class ProductComponent {
         alert("Review Submitted,Thank you");
         this.router.navigate(['/shop']);
         //console.log("Implement method to refresh UI");
+    }
+    IncProdQuantity() {
+        if (this.prodQuantity < 25)
+            this.prodQuantity += 1;
+    }
+    DecProdQuantity() {
+        if (this.prodQuantity >= 2)
+            this.prodQuantity -= 1;
     }
 };
 ProductComponent = tslib_1.__decorate([

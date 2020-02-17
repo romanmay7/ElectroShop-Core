@@ -23,11 +23,11 @@ let ItemService = class ItemService {
             }
         });
     }
-    add(id) {
+    add(id, prod_quantity) {
         return tslib_1.__awaiter(this, void 0, void 0, function* () {
             var item = {
                 product: yield this.productService.find(id),
-                quantity: 1
+                quantity: prod_quantity
             };
             if ((yield localStorage.getItem('cart')) == null) {
                 let cart = [];
@@ -50,7 +50,7 @@ let ItemService = class ItemService {
                 }
                 else {
                     let item = JSON.parse(cart[index]);
-                    item.quantity += 1;
+                    item.quantity += prod_quantity;
                     cart[index] = JSON.stringify(item);
                     yield localStorage.setItem("cart", JSON.stringify(cart));
                 }

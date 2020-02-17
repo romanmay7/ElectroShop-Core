@@ -31,10 +31,10 @@ export class ItemService {
 
     }
 }
-async add(id:string) {
+async add(id:string,prod_quantity:number) {
   var item:Item={
     product:await this.productService.find(id),
-    quantity:1
+      quantity: prod_quantity
   };
   if(await localStorage.getItem('cart')==null){
     let cart:any=[];
@@ -59,7 +59,7 @@ async add(id:string) {
    else 
    {
     let item:Item=JSON.parse(cart[index]);
-    item.quantity +=1;
+      item.quantity += prod_quantity;
     cart[index]=JSON.stringify(item);
     await localStorage.setItem("cart",JSON.stringify(cart));
    }

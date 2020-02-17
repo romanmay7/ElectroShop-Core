@@ -80,12 +80,12 @@
                             <div class="qty-label">
                                 Qty
                                 <div class="input-number">
-                                    <input type="number">
-                                    <span class="qty-up">+</span>
-                                    <span class="qty-down">-</span>
+                                    <input type="number" [(ngModel)]="prodQuantity">
+                                    <span (click)="IncProdQuantity()" class="qty-up">+</span>
+                                    <span (click)="DecProdQuantity()"class="qty-down">-</span>
                                 </div>
                             </div>
-                            <button (click)="itemService.add(selected_product.id)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                            <button (click)="itemService.add(selected_product.id,prodQuantity)" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
                         </div>
 
                         <ul class="product-btns">
