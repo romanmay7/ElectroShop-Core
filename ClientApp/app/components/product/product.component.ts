@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
        if(this.id) { this.selected_product = await  this.productService.find(this.id)};
        this.productService.getProductsByCategory(this.selected_product.category);//get all product with same 'category' as selected product 
      });
-      this.prodQuantity = 0;
+      this.prodQuantity = 1;
     
   }
     // convenience getter for easy access to form fields

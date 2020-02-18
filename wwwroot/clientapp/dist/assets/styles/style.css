@@ -2472,3 +2472,14 @@ textarea.input {
   position: static;
   
   }
+
+/* Sign Up Form */
+.signup-content {
+    background: #fff;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -o-border-radius: 10px;
+    -ms-border-radius: 10px;
+    padding: 50px 85px;
+}

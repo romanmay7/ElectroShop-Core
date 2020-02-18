@@ -8,6 +8,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 const routes = [
     { path: '', component: IndexComponent },
     { path: 'product', component: ProductComponent },
@@ -16,6 +17,7 @@ const routes = [
     { path: 'about', component: AboutComponent },
     { path: 'login', component: LoginComponent },
     { path: 'checkout', component: CheckoutComponent },
+    { path: 'signup', component: SignupComponent },
     { path: '**', redirectTo: '' }
 ];
 let AppRoutingModule = class AppRoutingModule {

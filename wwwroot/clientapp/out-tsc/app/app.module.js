@@ -16,6 +16,7 @@ import { AboutComponent } from './components/about/about.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 let AppModule = class AppModule {
 };
 AppModule = tslib_1.__decorate([
@@ -31,7 +32,8 @@ AppModule = tslib_1.__decorate([
             AboutComponent,
             FilterPipe,
             CheckoutComponent,
-            LoginComponent
+            LoginComponent,
+            SignupComponent
         ],
         imports: [
             BrowserModule,

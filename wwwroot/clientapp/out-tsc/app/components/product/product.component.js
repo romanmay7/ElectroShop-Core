@@ -29,7 +29,7 @@ let ProductComponent = class ProductComponent {
                 ;
                 this.productService.getProductsByCategory(this.selected_product.category); //get all product with same 'category' as selected product 
             }));
-            this.prodQuantity = 0;
+            this.prodQuantity = 1;
         });
     }
     // convenience getter for easy access to form fields

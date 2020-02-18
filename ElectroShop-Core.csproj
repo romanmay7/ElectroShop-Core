@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\app\helpers\" />
     <Folder Include="node_modules\" />
   </ItemGroup>
 

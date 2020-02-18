@@ -181,7 +181,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n        <div *ngIf=\"errorMessage\" class=\"alert alert-warning\">{{ errorMessage }}</div>\r\n        <form (submit)=\"onLogin()\" #theForm=\"ngForm\" novalidate>\r\n            <div class=\"form-group\">\r\n                <label for=\"username\">Username</label>\r\n                <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"creds.username\" #username=\"ngModel\" required />\r\n                <div class=\"text-danger\" *ngIf=\"username.touched && username.invalid && username.errors.required\">Username is required</div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"password\">Password</label>\r\n                <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"creds.password\" #password=\"ngModel\" required />\r\n                <div class=\"text-danger\" *ngIf=\"password.touched && password.invalid && password.errors.required\">Password is required</div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <input type=\"submit\" class=\"btn btn-success\" value=\"Login\" [disabled]=\"theForm.invalid\" />\r\n                <a eouterLink=\"/\" class=\"btn btn-default\">Cancel</a>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>";
+    __webpack_exports__["default"] = "<div class=\"row\">\r\n    <div class=\"col-md-4 col-md-offset-4\">\r\n        <div *ngIf=\"errorMessage\" class=\"alert alert-warning\">{{ errorMessage }}</div>\r\n        <form (submit)=\"onLogin()\" #theForm=\"ngForm\" novalidate>\r\n            <div class=\"form-group\">\r\n                <label for=\"username\">Username</label>\r\n                <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"creds.username\" #username=\"ngModel\" required />\r\n                <div class=\"text-danger\" *ngIf=\"username.touched && username.invalid && username.errors.required\">Username is required</div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <label for=\"password\">Password</label>\r\n                <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"creds.password\" #password=\"ngModel\" required />\r\n                <div class=\"text-danger\" *ngIf=\"password.touched && password.invalid && password.errors.required\">Password is required</div>\r\n            </div>\r\n            <div class=\"form-group\">\r\n                <input type=\"submit\" class=\"btn btn-success\" value=\"Login\" [disabled]=\"theForm.invalid\" />\r\n                <a routerLink=\"/\" class=\"btn btn-default\">Cancel</a>\r\n            </div>\r\n        </form>\r\n        <p class=\"loginhere\">\r\n            Don't  already Have an Account ?\r\n            <a routerLink=\"/signup\" class=\"loginhere-link\">Sign Up here</a>\r\n        </p>\r\n    </div>\r\n</div>";
     /***/
   },
 
@@ -202,6 +202,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     __webpack_exports__["default"] = "<!-- SECTION -->\n<div class=\"section\">\n        <!-- container -->\n        <div class=\"container\">\n            <!-- row -->\n            <div class=\"row\">\n                <!-- Product main img -->\n                <div class=\"col-md-5 col-md-push-2\">\n                    <div id=\"product-main-img\">\n                        <!-- <div class=\"product-preview\">\n                            <img src=\"./images/product01.png\" alt=\"\">\n                        </div>\n\n                        <div class=\"product-preview\">\n                            <img src=\"./images/product03.png\" alt=\"\">\n                        </div> -->\n\n                        <div class=\"product-preview\">\n                            <img src=\"/clientapp/assets/images/{{selected_product.photo}}\" alt=\"\">\n                        </div>\n\n                        <!-- <div class=\"product-preview\">\n                            <img src=\"./images/product08.png\" alt=\"\">\n                        </div> -->\n                    </div>\n                </div>\n                <!-- /Product main img -->\n\n                <!-- Product thumb imgs -->\n                <div class=\"col-md-2  col-md-pull-5\">\n                    <!--<div id=\"product-imgs\">\n                        <div class=\"product-preview\">\n                            <img src=\"./assets/images/{{selected_product.photo}}\" alt=\"\">\n                        </div>\n\n                        <div class=\"product-preview\">\n                                <img src=\"./assets/images/{{selected_product.photo}}\" alt=\"\">\n                        </div>\n\n                        <div class=\"product-preview\">\n                                <img src=\"./assets/images/{{selected_product.photo}}\" alt=\"\">\n                        </div>\n                    </div>-->\n                </div>\n                <!-- /Product thumb imgs -->\n\n                <!-- Product details -->\n                <div class=\"col-md-5\">\n                    <div class=\"product-details\">\n                        <h2 class=\"product-name\">{{selected_product.title}}</h2>\n                        <div>\n\n                            <div class=\"product-rating\" *ngFor=\"let i of [].constructor(productService.round(productService.averageRating(selected_product)))\">\n                               <i class=\"fa fa-star\"></i>\n                            </div>\n                            <a class=\"review-link\" target=\"_self\" href=\"product;id={{id}}#tab1\">{{selected_product.reviews.length}} Review(s) | Add your review</a>\n                        </div>\n                        <div>\n                            <h3 class=\"product-price\">{{selected_product.price}} <del class=\"product-old-price\">{{productService.round(selected_product.price*100/70)}}$</del></h3>\n                            <span class=\"product-available\">In Stock</span>\n                        </div>\n                        <p>{{selected_product.description}}</p>\n\n                        <!-- <div class=\"product-options\">\n                            <label>\n                                Size\n                                <select class=\"input-select\">\n                                    <option value=\"0\">X</option>\n                                </select>\n                            </label>\n                            <label>\n                                Color\n                                <select class=\"input-select\">\n                                    <option value=\"0\">Red</option>\n                                </select>\n                            </label>\n                        </div> -->\n\n                        <div class=\"add-to-cart\">\n                            <div class=\"qty-label\">\n                                Qty\n                                <div class=\"input-number\">\n                                    <input type=\"number\" [(ngModel)]=\"prodQuantity\">\n                                    <span (click)=\"IncProdQuantity()\" class=\"qty-up\">+</span>\n                                    <span (click)=\"DecProdQuantity()\"class=\"qty-down\">-</span>\n                                </div>\n                            </div>\n                            <button (click)=\"itemService.add(selected_product.id,prodQuantity)\" class=\"add-to-cart-btn\"><i class=\"fa fa-shopping-cart\"></i> add to cart</button>\n                        </div>\n\n                        <ul class=\"product-btns\">\n                            <li><a href=\"#\"><i class=\"fa fa-heart-o\"></i> add to wishlist</a></li>\n                            <li><a href=\"#\"><i class=\"fa fa-exchange\"></i> add to compare</a></li>\n                        </ul>\n\n                        <ul class=\"product-links\">\n                            <li>Category:</li>\n                            <li><a href=\"#\">{{selected_product.category}}</a></li>\n                            <!-- <li><a href=\"#\">Accessories</a></li> -->\n                        </ul>\n\n                        <ul class=\"product-links\">\n                            <li>Share:</li>\n                            <li><a href=\"#\"><i class=\"fa fa-facebook\"></i></a></li>\n                            <li><a href=\"#\"><i class=\"fa fa-twitter\"></i></a></li>\n                            <li><a href=\"#\"><i class=\"fa fa-google-plus\"></i></a></li>\n                            <li><a href=\"#\"><i class=\"fa fa-envelope\"></i></a></li>\n                        </ul>\n\n                    </div>\n                </div>\n                <!-- /Product details -->\n\n                <!-- Product tab -->\n                <div class=\"col-md-12\">\n                    <div id=\"product-tab\">\n                        <!-- product tab nav -->\n                        <ul class=\"tab-nav\">\n                            <li class=\"active\"><a data-toggle=\"tab\" href=\"#tab1\">Description</a></li>\n                            <li><a data-toggle=\"tab\" href=\"#tab2\">Details</a></li>\n                            <li><a data-toggle=\"tab\" href=\"#tab3\">Reviews ({{selected_product.reviews.length}})</a></li>\n                        </ul>\n                        <!-- /product tab nav -->\n                    </div>\n                        <!-- product tab content -->\n                        <div class=\"tab-content\">\n                            <!-- tab1  -->\n                            <div id=\"tab1\" class=\"tab-pane  active\">\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <p>{{selected_product.description}}</p>\n                                    </div>\n                                </div>\n                            </div>\n                            <!-- /tab1  -->\n\n                            <!-- tab2  -->\n                            <div id=\"tab2\" class=\"tab-pane \">\n                                <div class=\"row\">\n                                    <div class=\"col-md-12\">\n                                        <p>Lorem ipsum dolor sit amet,.</p>\n                                    </div>\n                                </div>\n                            </div>\n                            <!-- /tab2  -->\n\n                            \n<!-- tab3  -->\n<div id=\"tab3\" class=\"tab-pane\">\n        <div class=\"row\">\n            <!-- Rating -->\n            <div class=\"col-md-3\">\n                <div id=\"rating\">\n                    <div class=\"rating-avg\">\n                        <span>{{productService.round(productService.averageRating(selected_product))}}</span>\n                        <div class=\"rating-stars\" *ngFor=\"let i of [].constructor(productService.round(productService.averageRating(selected_product)))\">\n                            <i class=\"fa fa-star\"></i>\n\n                        </div>\n                    </div>\n                    <ul class=\"rating\" *ngFor=\"let review of selected_product.reviews\">\n                        <li>\n                                <div class=\"rating-stars\" *ngFor=\"let i of [].constructor(review.rating)\">\n                                <i class=\"fa fa-star\"></i>\n                            </div>\n                            <div class=\"rating-progress\">\n                                <div [style.width.%]=\"review.rating*20\"></div>                             \n                            </div>\n                            <span class=\"sum\">{{review.rating}}</span>\n                        </li>\n                       \n                    </ul>\n                </div>\n            </div>\n            <!-- /Rating -->\n\n            <!-- Reviews -->\n            <div class=\"col-md-6\" >\n                <div id=\"reviews\">\n                    <ul class=\"reviews\" *ngFor=\"let review of selected_product.reviews\">\n                        <li>\n                            <div class=\"review-heading\">\n                                <h5 class=\"name\">{{review.reviewerName}}</h5>\n                                <p class=\"date\">{{review.date}}</p>\n                                \n                                <span class=\"rating-stars\" *ngFor=\"let i of [].constructor(review.rating)\">\n                                    <i class=\"fa fa-star\"></i>\n                                </span>\n\n                            </div>\n                            <div class=\"review-body\">\n                                <p>{{review.content}}</p>\n                            </div>\n                        </li>\n                        \n                    </ul>\n\n                                <!-- <div class=\"rating-stars\" *ngFor=\"let review of selected_product.reviews.rating\">\n                                    <i class=\"fa fa-star-o empty\"></i>\n                                </div> -->\n\n                    <!-- <ul class=\"reviews-pagination\">\n                        <li class=\"active\">1</li>\n                        <li><a href=\"#\">2</a></li>\n                        <li><a href=\"#\">3</a></li>\n                        <li><a href=\"#\">4</a></li>\n                        <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n                    </ul> -->\n                </div>\n            </div>\n            <!-- /Reviews -->\n\n            <!-- Review Form -->\n            <div class=\"col-md-3\">\n                <div id=\"review-form\">\n                    <form class=\"review-form\"  [formGroup]=\"reviewForm\" (ngSubmit)=\"submitReview()\">\r\n                        <div class=\"form-group\">\r\n                            <input class=\"form-control\" type=\"text\" placeholder=\"Your Name\" formControlName=\"reviewer_name\" required>\r\n                            <div *ngIf=\"f.reviewer_name.errors\" class=\"text-danger\">\r\n                                <div *ngIf=\"f.reviewer_name.errors.required\">Reviewer is required</div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <input class=\"form-control\" type=\"email\" placeholder=\"Your Email\" formControlName=\"email\" required>\r\n                            <div *ngIf=\"f.email.errors\" class=\"text-danger\">\r\n                                <div *ngIf=\"f.email.errors.required\">Email is required</div>\r\n                                <div *ngIf=\"f.email.errors.email\">Email must be a valid email address</div>\r\n                            </div>\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <textarea class=\"form-control\" placeholder=\"Your Review\" formControlName=\"content\" required></textarea>\r\n                            <div *ngIf=\"f.content.errors\" class=\"text-danger\">\r\n                                <div *ngIf=\" f.content.errors.required\">Some Content is required for Review</div>\r\n                                <div *ngIf=\"f.content.errors.minlength\">Min Length must be 5 characters</div>\r\n                            </div>\r\n                        </div>\r\n\r\n                            <div class=\"form-group input-rating\">\r\n                                <span>Your Rating: </span>\r\n                                <div class=\"stars\">\r\n                                    <input id=\"star5\" name=\"rating\" value=\"5\" type=\"radio\" formControlName=\"rating\"><label for=\"star5\"></label>\r\n                                    <input id=\"star4\" name=\"rating\" value=\"4\" type=\"radio\" formControlName=\"rating\"><label for=\"star4\"></label>\r\n                                    <input id=\"star3\" name=\"rating\" value=\"3\" type=\"radio\" formControlName=\"rating\"><label for=\"star3\"></label>\r\n                                    <input id=\"star2\" name=\"rating\" value=\"2\" type=\"radio\" formControlName=\"rating\"><label for=\"star2\"></label>\r\n                                    <input id=\"star1\" name=\"rating\" value=\"1\" type=\"radio\" formControlName=\"rating\"><label for=\"star1\"></label>\r\n                                    <div *ngIf=\"f.rating.errors\" class=\"text-danger\">\r\n                                        <div *ngIf=\"f.rating.errors.required\">Please Rate!</div>\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                            <div class=\"form-group\">\r\n                                <button class=\"primary-btn\" >Submit</button>\r\n                            </div>\r\n</form>\n                </div>\n            </div>\n            <!-- /Review Form -->\n        </div>\n    </div>\n    <!-- /tab3  -->\n                       </div>\n                   \n                 </div>\n\n<h2>Products you might be interested</h2>\n\n<div class=\"col-md-2 col-sm-3\" *ngFor=\"let product of productService.search_results\"  >\n        <!-- tab -->\n        <div  id=\"tab1_\" class=\"tab-pane active\">\n          <div  class=\"products-slick\" data-nav=\"#slick-nav-1\">\n            <!-- product -->\n            <div class=\"product \">\n              <div class=\"product-img\" [routerLink]=\"['/product',{id:product.id}]\">\n                <img src=\"/clientapp/assets/images/{{product.photo}}\" alt=\"\" >\n                <div class=\"product-label\">\n                  <span class=\"sale\">-30%</span>\n                  <span class=\"new\">NEW</span>\n                </div>\n              </div>\n              <div class=\"product-body\">\n                <p class=\"product-category\">Category:{{product.category}}</p>\n                <h3 class=\"product-name\"><a [routerLink]=\"['/product',{id:product.id}]\">{{product.title}}</a></h3>\n                <h4 class=\"product-price\">{{product.price}}$ <del class=\"product-old-price\">{{productService.round(product.price*100/70)}}$</del></h4>\n  \n                <span class=\"product-rating\" *ngFor=\"let i of [].constructor(productService.round(productService.averageRating(product)))\">\n                    <i class=\"fa fa-star\"></i>\n                </span>\n  \n                <div class=\"product-btns\">\n                  <button class=\"add-to-wishlist\"><i class=\"fa fa-heart-o\"></i><span class=\"tooltipp\">add to wishlist</span></button>\n                  <button class=\"add-to-compare\"><i class=\"fa fa-exchange\"></i><span class=\"tooltipp\">add to compare</span></button>\n                  <button class=\"quick-view\"><i class=\"fa fa-eye\"></i><span class=\"tooltipp\">quick view</span></button>\n                </div>\n              </div>\n              <div class=\"add-to-cart\">\n                <button (click)=\"itemService.add(product.id)\" class=\"add-to-cart-btn\"><i class=\"fa fa-shopping-cart\"></i> add to cart</button>\n              </div>\n            </div>\n            <!-- /product -->\n          </div>\n          <div id=\"slick-nav-1_\" class=\"products-slick-nav\"></div>\n        </div>\n        <!-- /tab -->\n      </div>\n\n\n\n</div>\n</div>\n</div>";
+    /***/
+  },
+
+  /***/
+  "../node_modules/raw-loader/dist/cjs.js!./app/components/signup/signup.component.html":
+  /*!********************************************************************************************!*\
+    !*** ../node_modules/raw-loader/dist/cjs.js!./app/components/signup/signup.component.html ***!
+    \********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsAppComponentsSignupSignupComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div >\r\n        <section class=\"signup\">\r\n        <!-- <img src=\"images/signup-bg.jpg\" alt=\"\"> -->\r\n        <div class=\"container\">\r\n            <div class=\"signup-content\">\r\n                <div *ngIf=\"errorMessage\" class=\"alert alert-warning\">{{ errorMessage }}</div>\r\n                <form (ngSubmit)=\"onSignUp()\" [formGroup]=\"registerForm\" novalidate id=\"signup-form\" class=\"signup-form\">\r\n                    <h2 class=\"form-title\">Create Account</h2>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" formControlName=\"firstName\" [ngClass]=\"{ 'is-invalid': submitted && f.firstName.errors }\" class=\"form-control form-input\" name=\"fname\" id=\"fname\" placeholder=\"First Name\" />\r\n                        <div *ngIf=\"submitted && f.firstName.errors\" class=\"invalid-feedback form-input-error\">\r\n                            <div *ngIf=\"f.firstName.errors.required\">First Name is required</div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" formControlName=\"lastName\" [ngClass]=\"{ 'is-invalid': submitted && f.lastName.errors }\" class=\"form-control form-input\" name=\"lname\" id=\"lname\" placeholder=\"Last Name\" />\r\n                        <div *ngIf=\"submitted && f.lastName.errors\" class=\"invalid-feedback form-input-error\">\r\n                            <div *ngIf=\"f.lastName.errors.required\">Last Name is required</div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" formControlName=\"userName\" [ngClass]=\"{ 'is-invalid': submitted && f.userName.errors }\"class=\"form-control form-input\" name=\"uname\" id=\"uname\" placeholder=\"User Name\" />\r\n                        <div *ngIf=\"submitted && f.userName.errors\" class=\"invalid-feedback form-input-error\">\r\n                            <div *ngIf=\"f.userName.errors.required\">User Name is required</div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"email\" formControlName=\"email\" [ngClass]=\"{ 'is-invalid': submitted && f.email.errors }\" class=\"form-control form-input\" name=\"email\" id=\"email\" placeholder=\"Your Email\" />\r\n                        <div *ngIf=\"submitted && f.email.errors\" class=\"invalid-feedback form-input-error\">\r\n                            <div *ngIf=\"f.email.errors.required\">Email is required</div>\r\n                            <div *ngIf=\"f.email.errors.email\">Email must be a valid email address</div>\r\n                        </div>\r\n                    </div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <input type=\"text\" formControlName=\"password\" [ngClass]=\"{ 'is-invalid': submitted && f.password.errors }\" class=\"form-control form-input\" name=\"password\" id=\"password\" placeholder=\"Password\" />\r\n                        <span toggle=\"#password\" class=\"zmdi zmdi-eye field-icon toggle-password\"></span>\r\n                        <div *ngIf=\"submitted && f.password.errors\" class=\"invalid-feedback form-input-error\">\r\n                            <div *ngIf=\"f.password.errors.required\">Password is required</div>\r\n                            <div *ngIf=\"f.password.errors.minlength\">Password must be at least 6 characters</div>\r\n                        </div>\r\n                     </div>\r\n\r\n                        <div class=\"form-group\">\r\n                            <input type=\"password\" formControlName=\"confirmPassword\" [ngClass]=\"{ 'is-invalid': submitted && f.confirmPassword.errors }\" class=\"form-control form-input\" name=\"re_password\" id=\"re_password\" placeholder=\"Repeat your password\" />\r\n                            <div *ngIf=\"submitted && f.confirmPassword.errors\" class=\"invalid-feedback form-input-error\">\r\n                                <div *ngIf=\"f.confirmPassword.errors.required\">Confirm Password is required</div>\r\n                                <div *ngIf=\"f.confirmPassword.errors.mustMatch\">Passwords must match</div>\r\n                            </div>\r\n                        </div>\r\n\r\n                        <div class=\"form-group\">\r\n                            <input type=\"submit\" name=\"submit\" id=\"submit\" class=\"form-submit\" value=\"Sign up\" />\r\n                        </div>\r\n</form>\r\n                <<h4>\r\n                    Already Have an Account ?\r\n                    <a routerLink=\"/login\" class=\"loginhere-link\">Login here</a>\r\n                </h4>\r\n            </div>\r\n        </div>\r\n    </section>\r\n\r\n</div>";
     /***/
   },
 
@@ -872,6 +892,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./components/login/login.component */
     "./app/components/login/login.component.ts");
+    /* harmony import */
+
+
+    var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./components/signup/signup.component */
+    "./app/components/signup/signup.component.ts");
 
     var routes = [{
       path: '',
@@ -894,6 +920,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: 'checkout',
       component: _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_8__["CheckoutComponent"]
+    }, {
+      path: 'signup',
+      component: _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_10__["SignupComponent"]
     }, {
       path: '**',
       redirectTo: ''
@@ -926,7 +955,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiIuLi9hcHAuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -1107,13 +1136,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _components_login_login_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ./components/login/login.component */
     "./app/components/login/login.component.ts");
+    /* harmony import */
+
+
+    var _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ./components/signup/signup.component */
+    "./app/components/signup/signup.component.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _components_product_product_component__WEBPACK_IMPORTED_MODULE_8__["ProductComponent"], _components_index_index_component__WEBPACK_IMPORTED_MODULE_9__["IndexComponent"], _components_cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"], _components_header_header_component__WEBPACK_IMPORTED_MODULE_11__["HeaderComponent"], _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_12__["FooterComponent"], _components_contact_contact_component__WEBPACK_IMPORTED_MODULE_13__["ContactComponent"], _components_about_about_component__WEBPACK_IMPORTED_MODULE_14__["AboutComponent"], _pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_15__["FilterPipe"], _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_16__["CheckoutComponent"], _components_login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _components_product_product_component__WEBPACK_IMPORTED_MODULE_8__["ProductComponent"], _components_index_index_component__WEBPACK_IMPORTED_MODULE_9__["IndexComponent"], _components_cart_cart_component__WEBPACK_IMPORTED_MODULE_10__["CartComponent"], _components_header_header_component__WEBPACK_IMPORTED_MODULE_11__["HeaderComponent"], _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_12__["FooterComponent"], _components_contact_contact_component__WEBPACK_IMPORTED_MODULE_13__["ContactComponent"], _components_about_about_component__WEBPACK_IMPORTED_MODULE_14__["AboutComponent"], _pipes_filter_pipe__WEBPACK_IMPORTED_MODULE_15__["FilterPipe"], _components_checkout_checkout_component__WEBPACK_IMPORTED_MODULE_16__["CheckoutComponent"], _components_login_login_component__WEBPACK_IMPORTED_MODULE_17__["LoginComponent"], _components_signup_signup_component__WEBPACK_IMPORTED_MODULE_18__["SignupComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], ngx_pagination__WEBPACK_IMPORTED_MODULE_5__["NgxPaginationModule"]],
       providers: [],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
@@ -1137,7 +1172,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvYWJvdXQvYWJvdXQuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJhYm91dC9hYm91dC5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
@@ -1216,7 +1251,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvY2FydC9jYXJ0LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjYXJ0L2NhcnQuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -1476,7 +1511,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".checkout-thumb {\n  max-width: 100px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkNsaWVudEFwcC9hcHAvY29tcG9uZW50cy9jaGVja291dC9DOlxcVXNlcnNcXFJvbWFuIE1heWVyc29uXFxzb3VyY2VcXHJlcG9zXFxFbGVjdHJvU2hvcC1Db3JlL0NsaWVudEFwcFxcYXBwXFxjb21wb25lbnRzXFxjaGVja291dFxcY2hlY2tvdXQuY29tcG9uZW50LnNjc3MiLCJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvY2hlY2tvdXQvY2hlY2tvdXQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxnQkFBQTtBQ0NKIiwiZmlsZSI6IkNsaWVudEFwcC9hcHAvY29tcG9uZW50cy9jaGVja291dC9jaGVja291dC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jaGVja291dC10aHVtYiB7XHJcbiAgICBtYXgtd2lkdGg6IDEwMHB4O1xyXG59XHJcbiIsIi5jaGVja291dC10aHVtYiB7XG4gIG1heC13aWR0aDogMTAwcHg7XG59Il19 */";
+    __webpack_exports__["default"] = ".checkout-thumb {\n  max-width: 100px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNoZWNrb3V0L0M6XFxVc2Vyc1xcUm9tYW4gTWF5ZXJzb25cXHNvdXJjZVxccmVwb3NcXEVsZWN0cm9TaG9wLUNvcmVcXENsaWVudEFwcFxcYXBwXFxjb21wb25lbnRzL2NoZWNrb3V0XFxjaGVja291dC5jb21wb25lbnQuc2NzcyIsImNoZWNrb3V0L2NoZWNrb3V0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksZ0JBQUE7QUNDSiIsImZpbGUiOiJjaGVja291dC9jaGVja291dC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jaGVja291dC10aHVtYiB7XHJcbiAgICBtYXgtd2lkdGg6IDEwMHB4O1xyXG59XHJcbiIsIi5jaGVja291dC10aHVtYiB7XG4gIG1heC13aWR0aDogMTAwcHg7XG59Il19 */";
     /***/
   },
 
@@ -1615,7 +1650,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvY29udGFjdC9jb250YWN0LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjb250YWN0L2NvbnRhY3QuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -1707,7 +1742,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvZm9vdGVyL2Zvb3Rlci5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJmb290ZXIvZm9vdGVyLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
@@ -1786,7 +1821,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJoZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
@@ -1931,7 +1966,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvaW5kZXgvaW5kZXguY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJpbmRleC9pbmRleC5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
@@ -2072,7 +2107,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJsb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
@@ -2211,7 +2246,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJDbGllbnRBcHAvYXBwL2NvbXBvbmVudHMvcHJvZHVjdC9wcm9kdWN0LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJwcm9kdWN0L3Byb2R1Y3QuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
@@ -2354,7 +2389,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                         }, _callee3, this);
                       }));
                     });
-                    this.prodQuantity = 0;
+                    this.prodQuantity = 1;
 
                   case 5:
                   case "end":
@@ -2454,6 +2489,186 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./app/components/signup/signup.component.scss":
+  /*!*****************************************************!*\
+    !*** ./app/components/signup/signup.component.scss ***!
+    \*****************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function appComponentsSignupSignupComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "@charset \"UTF-8\";\n.signup-content {\n  background: #fff;\n  border-radius: 10px;\n  -moz-border-radius: 10px;\n  -webkit-border-radius: 10px;\n  -o-border-radius: 10px;\n  -ms-border-radius: 10px;\n  padding: 50px 85px;\n}\n.form-group {\n  overflow: hidden;\n  margin-bottom: 20px;\n}\n.form-input {\n  width: 100%;\n  border: 1px solid #ebebeb;\n  border-radius: 5px;\n  -moz-border-radius: 5px;\n  -webkit-border-radius: 5px;\n  -o-border-radius: 5px;\n  -ms-border-radius: 5px;\n  padding: 17px 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-weight: 500;\n  color: #222;\n}\n.form-input::-webkit-input-placeholder {\n  color: #999;\n}\n.form-input::-moz-placeholder {\n  color: #999;\n}\n.form-input:-ms-input-placeholder {\n  color: #999;\n}\n.form-input:-moz-placeholder {\n  color: #999;\n}\n.form-input::-webkit-input-placeholder {\n  font-weight: 500;\n}\n.form-input::-moz-placeholder {\n  font-weight: 500;\n}\n.form-input:-ms-input-placeholder {\n  font-weight: 500;\n}\n.form-input:-moz-placeholder {\n  font-weight: 500;\n}\n.form-input:focus {\n  border: 1px solid transparent;\n  -webkit-border-image-source: -webkit-linear-gradient(to right, #9face6, #74ebd5);\n  -moz-border-image-source: -moz-linear-gradient(to right, #9face6, #74ebd5);\n  -o-border-image-source: -o-linear-gradient(to right, #9face6, #74ebd5);\n  border-image-source: linear-gradient(to right, #9face6, #74ebd5);\n  -webkit-border-image-slice: 1;\n  border-image-slice: 1;\n  border-radius: 5px;\n  -moz-border-radius: 5px;\n  -webkit-border-radius: 5px;\n  -o-border-radius: 5px;\n  -ms-border-radius: 5px;\n  background-origin: border-box;\n  background-clip: content-box, border-box;\n}\n.form-input:focus::-webkit-input-placeholder {\n  color: #222;\n}\n.form-input:focus::-moz-placeholder {\n  color: #222;\n}\n.form-input:focus:-ms-input-placeholder {\n  color: #222;\n}\n.form-input:focus:-moz-placeholder {\n  color: #222;\n}\n.form-input-error {\n  width: 100%;\n  padding: 17px 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-weight: 500;\n  color: red;\n}\n.form-submit {\n  width: 100%;\n  border-radius: 5px;\n  -moz-border-radius: 5px;\n  -webkit-border-radius: 5px;\n  -o-border-radius: 5px;\n  -ms-border-radius: 5px;\n  padding: 17px 20px;\n  box-sizing: border-box;\n  font-size: 14px;\n  font-weight: 700;\n  color: #fff;\n  text-transform: uppercase;\n  border: none;\n  background-image: linear-gradient(to left, #74ebd5, #9face6);\n}\ninput[type=checkbox]:not(old) {\n  width: 2em;\n  margin: 0;\n  padding: 0;\n  font-size: 1em;\n  display: none;\n}\ninput[type=checkbox]:not(old) + label {\n  display: inline-block;\n  margin-top: 7px;\n  margin-bottom: 25px;\n}\ninput[type=checkbox]:not(old) + label > span {\n  display: inline-block;\n  width: 13px;\n  height: 13px;\n  margin-right: 15px;\n  margin-bottom: 3px;\n  border: 1px solid #ebebeb;\n  border-radius: 2px;\n  -moz-border-radius: 2px;\n  -webkit-border-radius: 2px;\n  -o-border-radius: 2px;\n  -ms-border-radius: 2px;\n  background: white;\n  background-image: linear-gradient(white, white);\n  vertical-align: bottom;\n}\ninput[type=checkbox]:not(old):checked + label > span {\n  background-image: linear-gradient(white, white);\n}\ninput[type=checkbox]:not(old):checked + label > span:before {\n  content: \"\";\n  display: block;\n  color: #222;\n  font-size: 11px;\n  line-height: 1.2;\n  text-align: center;\n  font-family: \"Material-Design-Iconic-Font\";\n  font-weight: bold;\n}\n.label-agree-term {\n  font-size: 12px;\n  font-weight: 600;\n  color: #555;\n}\n.term-service {\n  color: #555;\n}\n.loginhere {\n  color: #555;\n  font-weight: 500;\n  text-align: center;\n  margin-top: 91px;\n  margin-bottom: 5px;\n}\n.loginhere-link {\n  font-weight: 700;\n  color: #222;\n}\n.field-icon {\n  float: right;\n  margin-right: 17px;\n  margin-top: -32px;\n  position: relative;\n  z-index: 2;\n  color: #555;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpZ251cC9zaWdudXAuY29tcG9uZW50LnNjc3MiLCJzaWdudXAvQzpcXFVzZXJzXFxSb21hbiBNYXllcnNvblxcc291cmNlXFxyZXBvc1xcRWxlY3Ryb1Nob3AtQ29yZVxcQ2xpZW50QXBwXFxhcHBcXGNvbXBvbmVudHMvc2lnbnVwXFxzaWdudXAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsZ0JBQWdCO0FDMktoQjtFQUNJLGdCQUFBO0VBdEtBLG1CQXVLdUI7RUF0S3ZCLHdCQXNLdUI7RUFyS3ZCLDJCQXFLdUI7RUFwS3ZCLHNCQW9LdUI7RUFuS3ZCLHVCQW1LdUI7RUFDdkIsa0JBQUE7QURyS0o7QUN3S0E7RUFDSSxnQkFBQTtFQUNBLG1CQUFBO0FEcktKO0FDd0tBO0VBQ0ksV0FBQTtFQUNBLHlCQUFBO0VBbExBLGtCQW1MdUI7RUFsTHZCLHVCQWtMdUI7RUFqTHZCLDBCQWlMdUI7RUFoTHZCLHFCQWdMdUI7RUEvS3ZCLHNCQStLdUI7RUFDdkIsa0JBQUE7RUFDQSxzQkFBQTtFQUNBLGVBQUE7RUFDQSxnQkFBQTtFQUNBLFdBOUxVO0FENkJkO0FDNkhJO0VBQ0ksV0F6Sks7QUQ4QmI7QUM4SEk7RUFDSSxXQTdKSztBRGlDYjtBQytISTtFQUNJLFdBaktLO0FEb0NiO0FDZ0lJO0VBQ0ksV0FyS0s7QUR1Q2I7QUN3Skk7RUFDSSxnQkFBQTtBRHRKUjtBQ3lKSTtFQUNJLGdCQUFBO0FEdkpSO0FDMEpJO0VBQ0ksZ0JBQUE7QUR4SlI7QUMySkk7RUFDSSxnQkFBQTtBRHpKUjtBQzRKSTtFQUNJLDZCQUFBO0VBQ0EsZ0ZBQUE7RUFDQSwwRUFBQTtFQUNBLHNFQUFBO0VBQ0EsZ0VBQUE7RUFDQSw2QkFBQTtFQUNBLHFCQUFBO0VBbE5KLGtCQW1OMkI7RUFsTjNCLHVCQWtOMkI7RUFqTjNCLDBCQWlOMkI7RUFoTjNCLHFCQWdOMkI7RUEvTTNCLHNCQStNMkI7RUFFdkIsNkJBQUE7RUFDQSx3Q0FBQTtBRHZKUjtBQ3FGSTtFQUNJLFdBM0pNO0FEd0VkO0FDc0ZJO0VBQ0ksV0EvSk07QUQyRWQ7QUN1Rkk7RUFDSSxXQW5LTTtBRDhFZDtBQ3dGSTtFQUNJLFdBdktNO0FEaUZkO0FDK0lBO0VBQ0ksV0FBQTtFQUNBLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxVQUFBO0FENUlKO0FDZ0pBO0VBQ0ksV0FBQTtFQXJPQSxrQkFzT3VCO0VBck92Qix1QkFxT3VCO0VBcE92QiwwQkFvT3VCO0VBbk92QixxQkFtT3VCO0VBbE92QixzQkFrT3VCO0VBQ3ZCLGtCQUFBO0VBQ0Esc0JBQUE7RUFDQSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxXQUFBO0VBQ0EseUJBQUE7RUFDQSxZQUFBO0VBS0EsNERBQUE7QUR6SUo7QUM0SUE7RUFDSSxVQUFBO0VBQ0EsU0FBQTtFQUNBLFVBQUE7RUFDQSxjQUFBO0VBQ0EsYUFBQTtBRHpJSjtBQzRJQTtFQUNJLHFCQUFBO0VBQ0EsZUFBQTtFQUNBLG1CQUFBO0FEeklKO0FDNElBO0VBQ0kscUJBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0VBQ0Esa0JBQUE7RUFDQSx5QkFBQTtFQXpRQSxrQkEwUXVCO0VBelF2Qix1QkF5UXVCO0VBeFF2QiwwQkF3UXVCO0VBdlF2QixxQkF1UXVCO0VBdFF2QixzQkFzUXVCO0VBQ3ZCLGlCQUFBO0VBS0EsK0NBQUE7RUFDQSxzQkFBQTtBRHJJSjtBQ3dJQTtFQUtJLCtDQUFBO0FEcklKO0FDd0lBO0VBQ0ksWUFBQTtFQUNBLGNBQUE7RUFDQSxXQXJTVTtFQXNTVixlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtFQUNBLDBDQUFBO0VBQ0EsaUJBQUE7QURySUo7QUN3SUE7RUFDSSxlQUFBO0VBQ0EsZ0JBQUE7RUFDQSxXQUFBO0FEcklKO0FDd0lBO0VBQ0ksV0FBQTtBRHJJSjtBQ3dJQTtFQUNJLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsZ0JBQUE7RUFDQSxrQkFBQTtBRHJJSjtBQ3dJQTtFQUNJLGdCQUFBO0VBQ0EsV0FqVVU7QUQ0TGQ7QUN3SUE7RUFDSSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxpQkFBQTtFQUNBLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7QURySUoiLCJmaWxlIjoic2lnbnVwL3NpZ251cC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0IFwiVVRGLThcIjtcbi5zaWdudXAtY29udGVudCB7XG4gIGJhY2tncm91bmQ6ICNmZmY7XG4gIGJvcmRlci1yYWRpdXM6IDEwcHg7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogMTBweDtcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAxMHB4O1xuICAtby1ib3JkZXItcmFkaXVzOiAxMHB4O1xuICAtbXMtYm9yZGVyLXJhZGl1czogMTBweDtcbiAgcGFkZGluZzogNTBweCA4NXB4O1xufVxuXG4uZm9ybS1ncm91cCB7XG4gIG92ZXJmbG93OiBoaWRkZW47XG4gIG1hcmdpbi1ib3R0b206IDIwcHg7XG59XG5cbi5mb3JtLWlucHV0IHtcbiAgd2lkdGg6IDEwMCU7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNlYmViZWI7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgLW1vei1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4O1xuICAtby1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC1tcy1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIHBhZGRpbmc6IDE3cHggMjBweDtcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBmb250LXdlaWdodDogNTAwO1xuICBjb2xvcjogIzIyMjtcbn1cbi5mb3JtLWlucHV0Ojotd2Via2l0LWlucHV0LXBsYWNlaG9sZGVyIHtcbiAgY29sb3I6ICM5OTk7XG59XG4uZm9ybS1pbnB1dDo6LW1vei1wbGFjZWhvbGRlciB7XG4gIGNvbG9yOiAjOTk5O1xufVxuLmZvcm0taW5wdXQ6LW1zLWlucHV0LXBsYWNlaG9sZGVyIHtcbiAgY29sb3I6ICM5OTk7XG59XG4uZm9ybS1pbnB1dDotbW96LXBsYWNlaG9sZGVyIHtcbiAgY29sb3I6ICM5OTk7XG59XG4uZm9ybS1pbnB1dDo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG4uZm9ybS1pbnB1dDo6LW1vei1wbGFjZWhvbGRlciB7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG4uZm9ybS1pbnB1dDotbXMtaW5wdXQtcGxhY2Vob2xkZXIge1xuICBmb250LXdlaWdodDogNTAwO1xufVxuLmZvcm0taW5wdXQ6LW1vei1wbGFjZWhvbGRlciB7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG59XG4uZm9ybS1pbnB1dDpmb2N1cyB7XG4gIGJvcmRlcjogMXB4IHNvbGlkIHRyYW5zcGFyZW50O1xuICAtd2Via2l0LWJvcmRlci1pbWFnZS1zb3VyY2U6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCAjOWZhY2U2LCAjNzRlYmQ1KTtcbiAgLW1vei1ib3JkZXItaW1hZ2Utc291cmNlOiAtbW96LWxpbmVhci1ncmFkaWVudCh0byByaWdodCwgIzlmYWNlNiwgIzc0ZWJkNSk7XG4gIC1vLWJvcmRlci1pbWFnZS1zb3VyY2U6IC1vLWxpbmVhci1ncmFkaWVudCh0byByaWdodCwgIzlmYWNlNiwgIzc0ZWJkNSk7XG4gIGJvcmRlci1pbWFnZS1zb3VyY2U6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwgIzlmYWNlNiwgIzc0ZWJkNSk7XG4gIC13ZWJraXQtYm9yZGVyLWltYWdlLXNsaWNlOiAxO1xuICBib3JkZXItaW1hZ2Utc2xpY2U6IDE7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgLW1vei1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC13ZWJraXQtYm9yZGVyLXJhZGl1czogNXB4O1xuICAtby1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIC1tcy1ib3JkZXItcmFkaXVzOiA1cHg7XG4gIGJhY2tncm91bmQtb3JpZ2luOiBib3JkZXItYm94O1xuICBiYWNrZ3JvdW5kLWNsaXA6IGNvbnRlbnQtYm94LCBib3JkZXItYm94O1xufVxuLmZvcm0taW5wdXQ6Zm9jdXM6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIge1xuICBjb2xvcjogIzIyMjtcbn1cbi5mb3JtLWlucHV0OmZvY3VzOjotbW96LXBsYWNlaG9sZGVyIHtcbiAgY29sb3I6ICMyMjI7XG59XG4uZm9ybS1pbnB1dDpmb2N1czotbXMtaW5wdXQtcGxhY2Vob2xkZXIge1xuICBjb2xvcjogIzIyMjtcbn1cbi5mb3JtLWlucHV0OmZvY3VzOi1tb3otcGxhY2Vob2xkZXIge1xuICBjb2xvcjogIzIyMjtcbn1cblxuLmZvcm0taW5wdXQtZXJyb3Ige1xuICB3aWR0aDogMTAwJTtcbiAgcGFkZGluZzogMTdweCAyMHB4O1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiA1MDA7XG4gIGNvbG9yOiByZWQ7XG59XG5cbi5mb3JtLXN1Ym1pdCB7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIC1tb3otYm9yZGVyLXJhZGl1czogNXB4O1xuICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDVweDtcbiAgLW8tYm9yZGVyLXJhZGl1czogNXB4O1xuICAtbXMtYm9yZGVyLXJhZGl1czogNXB4O1xuICBwYWRkaW5nOiAxN3B4IDIwcHg7XG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgY29sb3I6ICNmZmY7XG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XG4gIGJvcmRlcjogbm9uZTtcbiAgYmFja2dyb3VuZC1pbWFnZTogLW1vei1saW5lYXItZ3JhZGllbnQodG8gbGVmdCwgIzc0ZWJkNSwgIzlmYWNlNik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IC1tcy1saW5lYXItZ3JhZGllbnQodG8gbGVmdCwgIzc0ZWJkNSwgIzlmYWNlNik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IC1vLWxpbmVhci1ncmFkaWVudCh0byBsZWZ0LCAjNzRlYmQ1LCAjOWZhY2U2KTtcbiAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQodG8gbGVmdCwgIzc0ZWJkNSwgIzlmYWNlNik7XG4gIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh0byBsZWZ0LCAjNzRlYmQ1LCAjOWZhY2U2KTtcbn1cblxuaW5wdXRbdHlwZT1jaGVja2JveF06bm90KG9sZCkge1xuICB3aWR0aDogMmVtO1xuICBtYXJnaW46IDA7XG4gIHBhZGRpbmc6IDA7XG4gIGZvbnQtc2l6ZTogMWVtO1xuICBkaXNwbGF5OiBub25lO1xufVxuXG5pbnB1dFt0eXBlPWNoZWNrYm94XTpub3Qob2xkKSArIGxhYmVsIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBtYXJnaW4tdG9wOiA3cHg7XG4gIG1hcmdpbi1ib3R0b206IDI1cHg7XG59XG5cbmlucHV0W3R5cGU9Y2hlY2tib3hdOm5vdChvbGQpICsgbGFiZWwgPiBzcGFuIHtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB3aWR0aDogMTNweDtcbiAgaGVpZ2h0OiAxM3B4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XG4gIG1hcmdpbi1ib3R0b206IDNweDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2ViZWJlYjtcbiAgYm9yZGVyLXJhZGl1czogMnB4O1xuICAtbW96LWJvcmRlci1yYWRpdXM6IDJweDtcbiAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAycHg7XG4gIC1vLWJvcmRlci1yYWRpdXM6IDJweDtcbiAgLW1zLWJvcmRlci1yYWRpdXM6IDJweDtcbiAgYmFja2dyb3VuZDogd2hpdGU7XG4gIGJhY2tncm91bmQtaW1hZ2U6IC1tb3otbGluZWFyLWdyYWRpZW50KHdoaXRlLCB3aGl0ZSk7XG4gIGJhY2tncm91bmQtaW1hZ2U6IC1tcy1saW5lYXItZ3JhZGllbnQod2hpdGUsIHdoaXRlKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogLW8tbGluZWFyLWdyYWRpZW50KHdoaXRlLCB3aGl0ZSk7XG4gIGJhY2tncm91bmQtaW1hZ2U6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KHdoaXRlLCB3aGl0ZSk7XG4gIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudCh3aGl0ZSwgd2hpdGUpO1xuICB2ZXJ0aWNhbC1hbGlnbjogYm90dG9tO1xufVxuXG5pbnB1dFt0eXBlPWNoZWNrYm94XTpub3Qob2xkKTpjaGVja2VkICsgbGFiZWwgPiBzcGFuIHtcbiAgYmFja2dyb3VuZC1pbWFnZTogLW1vei1saW5lYXItZ3JhZGllbnQod2hpdGUsIHdoaXRlKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogLW1zLWxpbmVhci1ncmFkaWVudCh3aGl0ZSwgd2hpdGUpO1xuICBiYWNrZ3JvdW5kLWltYWdlOiAtby1saW5lYXItZ3JhZGllbnQod2hpdGUsIHdoaXRlKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQod2hpdGUsIHdoaXRlKTtcbiAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHdoaXRlLCB3aGl0ZSk7XG59XG5cbmlucHV0W3R5cGU9Y2hlY2tib3hdOm5vdChvbGQpOmNoZWNrZWQgKyBsYWJlbCA+IHNwYW46YmVmb3JlIHtcbiAgY29udGVudDogXCLviatcIjtcbiAgZGlzcGxheTogYmxvY2s7XG4gIGNvbG9yOiAjMjIyO1xuICBmb250LXNpemU6IDExcHg7XG4gIGxpbmUtaGVpZ2h0OiAxLjI7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1mYW1pbHk6IFwiTWF0ZXJpYWwtRGVzaWduLUljb25pYy1Gb250XCI7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuXG4ubGFiZWwtYWdyZWUtdGVybSB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgY29sb3I6ICM1NTU7XG59XG5cbi50ZXJtLXNlcnZpY2Uge1xuICBjb2xvcjogIzU1NTtcbn1cblxuLmxvZ2luaGVyZSB7XG4gIGNvbG9yOiAjNTU1O1xuICBmb250LXdlaWdodDogNTAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIG1hcmdpbi10b3A6IDkxcHg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cblxuLmxvZ2luaGVyZS1saW5rIHtcbiAgZm9udC13ZWlnaHQ6IDcwMDtcbiAgY29sb3I6ICMyMjI7XG59XG5cbi5maWVsZC1pY29uIHtcbiAgZmxvYXQ6IHJpZ2h0O1xuICBtYXJnaW4tcmlnaHQ6IDE3cHg7XG4gIG1hcmdpbi10b3A6IC0zMnB4O1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHotaW5kZXg6IDI7XG4gIGNvbG9yOiAjNTU1O1xufSIsIiRibGFjay1jb2xvcjogIzIyMjtcclxuJGJsdWUtY29sb3I6ICM2ZGFiZTQ7XHJcbiRncmV5LWxpZ2h0OiAjOTk5O1xyXG5cclxuLy8gbWl4aW5cclxuQG1peGluIGJvcmRlci1yYWRpdXMoJHZhbHVlKSB7XHJcbiAgICBib3JkZXItcmFkaXVzOiAkdmFsdWU7XHJcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6ICR2YWx1ZTtcclxuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogJHZhbHVlO1xyXG4gICAgLW8tYm9yZGVyLXJhZGl1czogJHZhbHVlO1xyXG4gICAgLW1zLWJvcmRlci1yYWRpdXM6ICR2YWx1ZTtcclxufVxyXG5cclxuXHJcblxyXG5AbWl4aW4gYmFja2dyb3VuZC1ncmFkaWVudC10aHJlZSgkY29sb3IxLCAkY29sb3IyLCAkY29sb3IzKSB7XHJcbiAgICBiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoJGNvbG9yMSwgJGNvbG9yMiwgJGNvbG9yMyk7XHJcbiAgICBiYWNrZ3JvdW5kOiAtbW96LWxpbmVhci1ncmFkaWVudCgkY29sb3IxLCAkY29sb3IyLCAkY29sb3IzKTtcclxuICAgIGJhY2tncm91bmQ6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KCRjb2xvcjEsICRjb2xvcjIsICRjb2xvcjMpO1xyXG4gICAgYmFja2dyb3VuZDogLW8tbGluZWFyLWdyYWRpZW50KCRjb2xvcjEsICRjb2xvcjIsICRjb2xvcjMpO1xyXG4gICAgYmFja2dyb3VuZDogLW1zLWxpbmVhci1ncmFkaWVudCgkY29sb3IxLCAkY29sb3IyLCAkY29sb3IzKTtcclxufVxyXG5cclxuQG1peGluIGJhY2tncm91bmQtZ3JhZGllbnQtc2l4KCRjb2xvcjEsICRjb2xvcjIsICRjb2xvcjMsICRjb2xvcjQsICRjb2xvcjUsICRjb2xvcjYpIHtcclxuICAgIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgkY29sb3IxLCAkY29sb3IyLCAkY29sb3IzLCAkY29sb3I0LCAkY29sb3I1LCAkY29sb3I2KTtcclxuICAgIGJhY2tncm91bmQ6IC1tb3otbGluZWFyLWdyYWRpZW50KCRjb2xvcjEsICRjb2xvcjIsICRjb2xvcjMsICRjb2xvcjQsICRjb2xvcjUsICRjb2xvcjYpO1xyXG4gICAgYmFja2dyb3VuZDogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQoJGNvbG9yMSwgJGNvbG9yMiwgJGNvbG9yMywgJGNvbG9yNCwgJGNvbG9yNSwgJGNvbG9yNik7XHJcbiAgICBiYWNrZ3JvdW5kOiAtby1saW5lYXItZ3JhZGllbnQoJGNvbG9yMSwgJGNvbG9yMiwgJGNvbG9yMywgJGNvbG9yNCwgJGNvbG9yNSwgJGNvbG9yNik7XHJcbiAgICBiYWNrZ3JvdW5kOiAtbXMtbGluZWFyLWdyYWRpZW50KCRjb2xvcjEsICRjb2xvcjIsICRjb2xvcjMsICRjb2xvcjQsICRjb2xvcjUsICRjb2xvcjYpO1xyXG59XHJcblxyXG5AbWl4aW4gdHJhbnNmb3JtKCR2YWx1ZSkge1xyXG4gICAgdHJhbnNmb3JtOiAkdmFsdWU7XHJcbiAgICAtbW96LXRyYW5zZm9ybTogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm06ICR2YWx1ZTtcclxuICAgIC1vLXRyYW5zZm9ybTogJHZhbHVlO1xyXG4gICAgLW1zLXRyYW5zZm9ybTogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gYm94LXNoYWRvdygkdmFsdWUpIHtcclxuICAgIGJveC1zaGFkb3c6ICR2YWx1ZTtcclxuICAgIC1tb3otYm94LXNoYWRvdzogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1ib3gtc2hhZG93OiAkdmFsdWU7XHJcbiAgICAtby1ib3gtc2hhZG93OiAkdmFsdWU7XHJcbiAgICAtbXMtYm94LXNoYWRvdzogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gZmlsdGVyKCR2YWx1ZSkge1xyXG4gICAgZmlsdGVyOiAkdmFsdWU7XHJcbiAgICAtbW96LWZpbHRlcjogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1maWx0ZXI6ICR2YWx1ZTtcclxuICAgIC1vLWZpbHRlcjogJHZhbHVlO1xyXG4gICAgLW1zLWZpbHRlcjogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gdHJhbnNpdGlvbigkdmFsdWUpIHtcclxuICAgIHRyYW5zaXRpb246ICR2YWx1ZTtcclxuICAgIC1tb3otdHJhbnNpdGlvbjogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC10cmFuc2l0aW9uOiAkdmFsdWU7XHJcbiAgICAtby10cmFuc2l0aW9uOiAkdmFsdWU7XHJcbiAgICAtbXMtdHJhbnNpdGlvbjogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gYW5pbWF0aW9uKCR2YWx1ZSkge1xyXG4gICAgYW5pbWF0aW9uOiAkdmFsdWU7XHJcbiAgICAtbW96LWFuaW1hdGlvbjogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1hbmltYXRpb246ICR2YWx1ZTtcclxuICAgIC1vLWFuaW1hdGlvbjogJHZhbHVlO1xyXG4gICAgLW1zLWFuaW1hdGlvbjogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gdHJhbnNmb3JtLW9yaWdpbigkdmFsdWUpIHtcclxuICAgIHRyYW5zZm9ybS1vcmlnaW46ICR2YWx1ZTtcclxuICAgIC1tb3otdHJhbnNmb3JtLW9yaWdpbjogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC10cmFuc2Zvcm0tb3JpZ2luOiAkdmFsdWU7XHJcbiAgICAtby10cmFuc2Zvcm0tb3JpZ2luOiAkdmFsdWU7XHJcbiAgICAtbXMtdHJhbnNmb3JtLW9yaWdpbjogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gYXBwZWFyYW5jZSgkdmFsdWUpIHtcclxuICAgIGFwcGVhcmFuY2U6ICR2YWx1ZSAhaW1wb3J0YW50O1xyXG4gICAgLW1vei1hcHBlYXJhbmNlOiAkdmFsdWUgIWltcG9ydGFudDtcclxuICAgIC13ZWJraXQtYXBwZWFyYW5jZTogJHZhbHVlICFpbXBvcnRhbnQ7XHJcbiAgICAtby1hcHBlYXJhbmNlOiAkdmFsdWUgIWltcG9ydGFudDtcclxuICAgIC1tcy1hcHBlYXJhbmNlOiAkdmFsdWUgIWltcG9ydGFudDtcclxufVxyXG5cclxuQG1peGluIGJveC1zaGFkb3ctaW5wdXQoJHZhbHVlKSB7XHJcbiAgICBib3gtc2hhZG93OiAkdmFsdWUgIWltcG9ydGFudDtcclxuICAgIC1tb3otYm94LXNoYWRvdzogJHZhbHVlICFpbXBvcnRhbnQ7XHJcbiAgICAtd2Via2l0LWJveC1zaGFkb3c6ICR2YWx1ZSAhaW1wb3J0YW50O1xyXG4gICAgLW8tYm94LXNoYWRvdzogJHZhbHVlICFpbXBvcnRhbnQ7XHJcbiAgICAtbXMtYm94LXNoYWRvdzogJHZhbHVlICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi8vZmxleFxyXG5AbWl4aW4gZmxleC13cmFwKCR2YWx1ZSkge1xyXG4gICAgZmxleC13cmFwOiAkdmFsdWU7XHJcbiAgICAtbW96LWZsZXgtd3JhcDogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1mbGV4LXdyYXA6ICR2YWx1ZTtcclxuICAgIC1vLWZsZXgtd3JhcDogJHZhbHVlO1xyXG4gICAgLW1zLWZsZXgtd3JhcDogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gZmxleC1kaXJlY3Rpb24oJHZhbHVlKSB7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogJHZhbHVlO1xyXG4gICAgLW1vei1mbGV4LWRpcmVjdGlvbjogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1mbGV4LWRpcmVjdGlvbjogJHZhbHVlO1xyXG4gICAgLW8tZmxleC1kaXJlY3Rpb246ICR2YWx1ZTtcclxuICAgIC1tcy1mbGV4LWRpcmVjdGlvbjogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gZmxleC1mbG93KCR2YWx1ZSkge1xyXG4gICAgZmxleC1mbG93OiAkdmFsdWU7XHJcbiAgICAtbW96LWZsZXgtZmxvdzogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1mbGV4LWZsb3c6ICR2YWx1ZTtcclxuICAgIC1vLWZsZXgtZmxvdzogJHZhbHVlO1xyXG4gICAgLW1zLWZsZXgtZmxvdzogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4ganVzdGlmeS1jb250ZW50KCR2YWx1ZSkge1xyXG4gICAganVzdGlmeS1jb250ZW50OiAkdmFsdWU7XHJcbiAgICAtbW96LWp1c3RpZnktY29udGVudDogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1qdXN0aWZ5LWNvbnRlbnQ6ICR2YWx1ZTtcclxuICAgIC1vLWp1c3RpZnktY29udGVudDogJHZhbHVlO1xyXG4gICAgLW1zLWp1c3RpZnktY29udGVudDogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gYWxpZ24taXRlbXMoJHZhbHVlKSB7XHJcbiAgICBhbGlnbi1pdGVtczogJHZhbHVlO1xyXG4gICAgLW1vei1hbGlnbi1pdGVtczogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1hbGlnbi1pdGVtczogJHZhbHVlO1xyXG4gICAgLW8tYWxpZ24taXRlbXM6ICR2YWx1ZTtcclxuICAgIC1tcy1hbGlnbi1pdGVtczogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gb3JkZXIoJHZhbHVlKSB7XHJcbiAgICBvcmRlcjogJHZhbHVlO1xyXG4gICAgLW1vei1vcmRlcjogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1vcmRlcjogJHZhbHVlO1xyXG4gICAgLW8tb3JkZXI6ICR2YWx1ZTtcclxuICAgIC1tcy1vcmRlcjogJHZhbHVlO1xyXG59XHJcblxyXG5AbWl4aW4gZmxleCgkdmFsdWUpIHtcclxuICAgIGZsZXg6ICR2YWx1ZTtcclxuICAgIC1tb3otZmxleDogJHZhbHVlO1xyXG4gICAgLXdlYmtpdC1mbGV4OiAkdmFsdWU7XHJcbiAgICAtby1mbGV4OiAkdmFsdWU7XHJcbiAgICAtbXMtZmxleDogJHZhbHVlO1xyXG59XHJcblxyXG5cclxuQG1peGluIGlucHV0LXBsYWNlaG9sZGVyKCR2YWx1ZSkge1xyXG4gICAgJjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7XHJcbiAgICAgICAgY29sb3I6ICR2YWx1ZTtcclxuICAgIH1cclxuXHJcbiAgICAmOjotbW96LXBsYWNlaG9sZGVyIHtcclxuICAgICAgICBjb2xvcjogJHZhbHVlO1xyXG4gICAgfVxyXG5cclxuICAgICY6LW1zLWlucHV0LXBsYWNlaG9sZGVyIHtcclxuICAgICAgICBjb2xvcjogJHZhbHVlO1xyXG4gICAgfVxyXG5cclxuICAgICY6LW1vei1wbGFjZWhvbGRlciB7XHJcbiAgICAgICAgY29sb3I6ICR2YWx1ZTtcclxuICAgIH1cclxufVxyXG5cclxuLnNpZ251cC1jb250ZW50IHtcclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbiAgICBAaW5jbHVkZSBib3JkZXItcmFkaXVzKDEwcHgpO1xyXG4gICAgcGFkZGluZzogNTBweCA4NXB4O1xyXG59XHJcblxyXG4uZm9ybS1ncm91cCB7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxufVxyXG5cclxuLmZvcm0taW5wdXQge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCByZ2IoMjM1LCAyMzUsIDIzNSk7XHJcbiAgICBAaW5jbHVkZSBib3JkZXItcmFkaXVzKDVweCk7XHJcbiAgICBwYWRkaW5nOiAxN3B4IDIwcHg7XHJcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxuICAgIGNvbG9yOiAkYmxhY2stY29sb3I7XHJcbiAgICBAaW5jbHVkZSBpbnB1dC1wbGFjZWhvbGRlcigkZ3JleS1saWdodCk7XHJcblxyXG4gICAgJjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7XHJcbiAgICAgICAgZm9udC13ZWlnaHQ6IDUwMDtcclxuICAgIH1cclxuXHJcbiAgICAmOjotbW96LXBsYWNlaG9sZGVyIHtcclxuICAgICAgICBmb250LXdlaWdodDogNTAwO1xyXG4gICAgfVxyXG5cclxuICAgICY6LW1zLWlucHV0LXBsYWNlaG9sZGVyIHtcclxuICAgICAgICBmb250LXdlaWdodDogNTAwO1xyXG4gICAgfVxyXG5cclxuICAgICY6LW1vei1wbGFjZWhvbGRlciB7XHJcbiAgICAgICAgZm9udC13ZWlnaHQ6IDUwMDtcclxuICAgIH1cclxuXHJcbiAgICAmOmZvY3VzIHtcclxuICAgICAgICBib3JkZXI6IDFweCBzb2xpZCB0cmFuc3BhcmVudDtcclxuICAgICAgICAtd2Via2l0LWJvcmRlci1pbWFnZS1zb3VyY2U6IC13ZWJraXQtbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCByZ2IoMTU5LDE3MiwyMzApLCByZ2IoMTE2LDIzNSwyMTMpKTtcclxuICAgICAgICAtbW96LWJvcmRlci1pbWFnZS1zb3VyY2U6IC1tb3otbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCByZ2IoMTU5LDE3MiwyMzApLCByZ2IoMTE2LDIzNSwyMTMpKTtcclxuICAgICAgICAtby1ib3JkZXItaW1hZ2Utc291cmNlOiAtby1saW5lYXItZ3JhZGllbnQodG8gcmlnaHQsIHJnYigxNTksMTcyLDIzMCksIHJnYigxMTYsMjM1LDIxMykpO1xyXG4gICAgICAgIGJvcmRlci1pbWFnZS1zb3VyY2U6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwgcmdiKDE1OSwxNzIsMjMwKSwgcmdiKDExNiwyMzUsMjEzKSk7XHJcbiAgICAgICAgLXdlYmtpdC1ib3JkZXItaW1hZ2Utc2xpY2U6IDE7XHJcbiAgICAgICAgYm9yZGVyLWltYWdlLXNsaWNlOiAxO1xyXG4gICAgICAgIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoNXB4KTtcclxuICAgICAgICBAaW5jbHVkZSBpbnB1dC1wbGFjZWhvbGRlcigkYmxhY2stY29sb3IpO1xyXG4gICAgICAgIGJhY2tncm91bmQtb3JpZ2luOiBib3JkZXItYm94O1xyXG4gICAgICAgIGJhY2tncm91bmQtY2xpcDogY29udGVudC1ib3gsIGJvcmRlci1ib3g7XHJcbiAgICB9XHJcbn1cclxuXHJcbi5mb3JtLWlucHV0LWVycm9yIHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZzogMTdweCAyMHB4O1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgICBjb2xvcjogcmVkO1xyXG59XHJcblxyXG5cclxuLmZvcm0tc3VibWl0IHtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgQGluY2x1ZGUgYm9yZGVyLXJhZGl1cyg1cHgpO1xyXG4gICAgcGFkZGluZzogMTdweCAyMHB4O1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA3MDA7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiAtbW96LWxpbmVhci1ncmFkaWVudCh0byBsZWZ0LCAjNzRlYmQ1LCM5ZmFjZTYpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLW1zLWxpbmVhci1ncmFkaWVudCh0byBsZWZ0LCAjNzRlYmQ1LCM5ZmFjZTYpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLW8tbGluZWFyLWdyYWRpZW50KHRvIGxlZnQsICM3NGViZDUsIzlmYWNlNik7XHJcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudCh0byBsZWZ0LCAjNzRlYmQ1LCM5ZmFjZTYpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHRvIGxlZnQsICM3NGViZDUsIzlmYWNlNik7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9Y2hlY2tib3hdOm5vdChvbGQpIHtcclxuICAgIHdpZHRoOiAyZW07XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgZm9udC1zaXplOiAxZW07XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG59XHJcblxyXG5pbnB1dFt0eXBlPWNoZWNrYm94XTpub3Qob2xkKSArIGxhYmVsIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIG1hcmdpbi10b3A6IDdweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDI1cHg7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9Y2hlY2tib3hdOm5vdChvbGQpICsgbGFiZWwgPiBzcGFuIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHdpZHRoOiAxM3B4O1xyXG4gICAgaGVpZ2h0OiAxM3B4O1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogM3B4O1xyXG4gICAgYm9yZGVyOiAxcHggc29saWQgI2ViZWJlYjtcclxuICAgIEBpbmNsdWRlIGJvcmRlci1yYWRpdXMoMnB4KTtcclxuICAgIGJhY2tncm91bmQ6IHJnYigyNTUsMjU1LDI1NSk7XHJcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiAtbW96LWxpbmVhci1ncmFkaWVudChyZ2IoMjU1LDI1NSwyNTUpLHJnYigyNTUsMjU1LDI1NSkpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLW1zLWxpbmVhci1ncmFkaWVudChyZ2IoMjU1LDI1NSwyNTUpLHJnYigyNTUsMjU1LDI1NSkpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLW8tbGluZWFyLWdyYWRpZW50KHJnYigyNTUsMjU1LDI1NSkscmdiKDI1NSwyNTUsMjU1KSk7XHJcbiAgICBiYWNrZ3JvdW5kLWltYWdlOiAtd2Via2l0LWxpbmVhci1ncmFkaWVudChyZ2IoMjU1LDI1NSwyNTUpLHJnYigyNTUsMjU1LDI1NSkpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KHJnYigyNTUsMjU1LDI1NSkscmdiKDI1NSwyNTUsMjU1ICkpO1xyXG4gICAgdmVydGljYWwtYWxpZ246IGJvdHRvbTtcclxufVxyXG5cclxuaW5wdXRbdHlwZT1jaGVja2JveF06bm90KG9sZCk6Y2hlY2tlZCArIGxhYmVsID4gc3Bhbiwge1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLW1vei1saW5lYXItZ3JhZGllbnQocmdiKDI1NSwyNTUsMjU1KSxyZ2IoMjU1LDI1NSwyNTUpKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC1tcy1saW5lYXItZ3JhZGllbnQocmdiKDI1NSwyNTUsMjU1KSxyZ2IoMjU1LDI1NSwyNTUpKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IC1vLWxpbmVhci1ncmFkaWVudChyZ2IoMjU1LDI1NSwyNTUpLHJnYigyNTUsMjU1LDI1NSkpO1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogLXdlYmtpdC1saW5lYXItZ3JhZGllbnQocmdiKDI1NSwyNTUsMjU1KSxyZ2IoMjU1LDI1NSwyNTUpKTtcclxuICAgIGJhY2tncm91bmQtaW1hZ2U6IGxpbmVhci1ncmFkaWVudChyZ2IoMjU1LDI1NSwyNTUpLHJnYigyNTUsMjU1LDI1NSApKTtcclxufVxyXG5cclxuaW5wdXRbdHlwZT1jaGVja2JveF06bm90KG9sZCk6Y2hlY2tlZCArIGxhYmVsID4gc3BhbjpiZWZvcmUge1xyXG4gICAgY29udGVudDogJ1xcZjI2Yic7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIGNvbG9yOiAkYmxhY2stY29sb3I7XHJcbiAgICBmb250LXNpemU6IDExcHg7XHJcbiAgICBsaW5lLWhlaWdodDogMS4yO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1mYW1pbHk6ICdNYXRlcmlhbC1EZXNpZ24tSWNvbmljLUZvbnQnO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5sYWJlbC1hZ3JlZS10ZXJtIHtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICBjb2xvcjogIzU1NTtcclxufVxyXG5cclxuLnRlcm0tc2VydmljZSB7XHJcbiAgICBjb2xvcjogIzU1NTtcclxufVxyXG5cclxuLmxvZ2luaGVyZSB7XHJcbiAgICBjb2xvcjogIzU1NTtcclxuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBtYXJnaW4tdG9wOiA5MXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogNXB4O1xyXG59XHJcblxyXG4ubG9naW5oZXJlLWxpbmsge1xyXG4gICAgZm9udC13ZWlnaHQ6IDcwMDtcclxuICAgIGNvbG9yOiAkYmxhY2stY29sb3I7XHJcbn1cclxuXHJcbi5maWVsZC1pY29uIHtcclxuICAgIGZsb2F0OiByaWdodDtcclxuICAgIG1hcmdpbi1yaWdodDogMTdweDtcclxuICAgIG1hcmdpbi10b3A6IC0zMnB4O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgei1pbmRleDogMjtcclxuICAgIGNvbG9yOiAjNTU1O1xyXG59XHJcbiJdfQ== */";
+    /***/
+  },
+
+  /***/
+  "./app/components/signup/signup.component.ts":
+  /*!***************************************************!*\
+    !*** ./app/components/signup/signup.component.ts ***!
+    \***************************************************/
+
+  /*! exports provided: SignupComponent */
+
+  /***/
+  function appComponentsSignupSignupComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SignupComponent", function () {
+      return SignupComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "../node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "../node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common/http */
+    "../node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/forms */
+    "../node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _entities_user_entity__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../../entities/user.entity */
+    "./app/entities/user.entity.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "../node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _helpers_must_match_validator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../helpers/must-match.validator */
+    "./app/helpers/must-match.validator.ts"); // import custom validator to validate that password and confirm password fields match
+
+
+    var SignupComponent =
+    /*#__PURE__*/
+    function () {
+      function SignupComponent(formBuilder, http, router) {
+        _classCallCheck(this, SignupComponent);
+
+        this.formBuilder = formBuilder;
+        this.http = http;
+        this.router = router;
+        this.submitted = false;
+      }
+
+      _createClass(SignupComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.registerForm = this.formBuilder.group({
+            firstName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            lastName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            userName: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].email]],
+            password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].minLength(6)]],
+            confirmPassword: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+          }, {
+            validator: Object(_helpers_must_match_validator__WEBPACK_IMPORTED_MODULE_6__["MustMatch"])('password', 'confirmPassword')
+          });
+        } // convenience getter for easy access to form fields
+
+      }, {
+        key: "onSignUp",
+        value: function onSignUp() {
+          var _this6 = this;
+
+          this.submitted = true; // stop here if form is invalid
+
+          if (this.registerForm.invalid) {
+            //alert('NO SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+            return;
+          } //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
+
+
+          var new_user = new _entities_user_entity__WEBPACK_IMPORTED_MODULE_4__["User"]();
+          new_user.firstName = this.registerForm.get('firstName').value;
+          new_user.lastName = this.registerForm.get('lastName').value;
+          new_user.userName = this.registerForm.get('userName').value;
+          new_user.email = this.registerForm.get('email').value;
+          new_user.password = this.registerForm.get('password').value;
+          return this.http.post("/Account/CreateUser", new_user, {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json; charset=utf-8') //.set('application/x-www-form-urlencoded')
+
+          }).subscribe( //Refreshing Reviews List on Products page,after new review was submited by calling product Service
+          function (response) {
+            _this6.Redirect();
+
+            console.log(response);
+          }, function (error) {
+            alert("Could not create new user");
+            console.log(error);
+          });
+        }
+      }, {
+        key: "Redirect",
+        value: function Redirect() {
+          alert("New User Created");
+          this.router.navigate(['/login']); //console.log("Implement method to refresh UI");
+        }
+      }, {
+        key: "f",
+        get: function get() {
+          return this.registerForm.controls;
+        }
+      }]);
+
+      return SignupComponent;
+    }();
+
+    SignupComponent.ctorParameters = function () {
+      return [{
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"]
+      }, {
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+      }];
+    };
+
+    SignupComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-signup',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./signup.component.html */
+      "../node_modules/raw-loader/dist/cjs.js!./app/components/signup/signup.component.html"))["default"],
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./signup.component.scss */
+      "./app/components/signup/signup.component.scss"))["default"]]
+    })], SignupComponent);
+    /***/
+  },
+
+  /***/
   "./app/entities/order.entity.ts":
   /*!**************************************!*\
     !*** ./app/entities/order.entity.ts ***!
@@ -2515,6 +2730,90 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var ReviewModel = function ReviewModel() {
       _classCallCheck(this, ReviewModel);
     };
+    /***/
+
+  },
+
+  /***/
+  "./app/entities/user.entity.ts":
+  /*!*************************************!*\
+    !*** ./app/entities/user.entity.ts ***!
+    \*************************************/
+
+  /*! exports provided: User */
+
+  /***/
+  function appEntitiesUserEntityTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "User", function () {
+      return User;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "../node_modules/tslib/tslib.es6.js");
+
+    var User = function User() {
+      _classCallCheck(this, User);
+    };
+    /***/
+
+  },
+
+  /***/
+  "./app/helpers/must-match.validator.ts":
+  /*!*********************************************!*\
+    !*** ./app/helpers/must-match.validator.ts ***!
+    \*********************************************/
+
+  /*! exports provided: MustMatch */
+
+  /***/
+  function appHelpersMustMatchValidatorTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MustMatch", function () {
+      return MustMatch;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "../node_modules/tslib/tslib.es6.js"); // custom validator to check that two fields match
+
+
+    function MustMatch(controlName, matchingControlName) {
+      return function (formGroup) {
+        var control = formGroup.controls[controlName];
+        var matchingControl = formGroup.controls[matchingControlName];
+
+        if (matchingControl.errors && !matchingControl.errors.mustMatch) {
+          // return if another validator has already found an error on the matchingControl
+          return;
+        } // set error on matchingControl if validation fails
+
+
+        if (control.value !== matchingControl.value) {
+          matchingControl.setErrors({
+            mustMatch: true
+          });
+        } else {
+          matchingControl.setErrors(null);
+        }
+      };
+    }
     /***/
 
   },
@@ -2954,24 +3253,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "checkout",
         value: function checkout() {
-          var _this6 = this;
+          var _this7 = this;
 
           this.prepareNewOrder();
           return this.http.post("api/Orders", this.order, {
             headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set("Authorization", "Bearer " + this.token).set('Content-Type', 'application/json; charset=utf-8')
           }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (response) {
-            _this6.order = new _entities_order_entity__WEBPACK_IMPORTED_MODULE_5__["Order"]();
+            alert("Your Order was Submited,Thank you!");
+            _this7.order = new _entities_order_entity__WEBPACK_IMPORTED_MODULE_5__["Order"](); //Reset Order
+
+            _this7.itemService.items = []; //Reset Shopping Cart
+
+            localStorage.removeItem('cart'); //Reset Local storage
+
             return true;
           }));
         }
       }, {
         key: "login",
         value: function login(creds) {
-          var _this7 = this;
+          var _this8 = this;
 
           return this.http.post("/Account/CreateToken", creds).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (data) {
-            _this7.token = data.token;
-            _this7.tokenExpiration = data.expiration; //this.currentUser = creds.username;
+            _this8.token = data.token;
+            _this8.tokenExpiration = data.expiration; //this.currentUser = creds.username;
 
             return true;
           }));

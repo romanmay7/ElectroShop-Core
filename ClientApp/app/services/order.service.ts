@@ -44,7 +44,10 @@ export class OrderService {
         })
             .pipe(
                 map(response => {
-                    this.order = new Order();
+                    alert("Your Order was Submited,Thank you!");
+                    this.order = new Order();//Reset Order
+                    this.itemService.items = [] //Reset Shopping Cart
+                    localStorage.removeItem('cart') //Reset Local storage
                     return true;
                 })
 

@@ -70,6 +70,47 @@ namespace ElectroShop_Core.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateUser([FromBody]UserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                StoreUser user = new StoreUser()
+                {
+                    FirstName = model.firstName,
+                    LastName =model.lastName,
+                    Email = model.email,
+                    UserName = model.userName
+                };
+
+                var result = await _userManager.CreateAsync(user,model.password);
+
+                if (result != IdentityResult.Success)
+                {
+                    throw new InvalidOperationException("Could not create new user ");
+                }
+
+
+                if (result.Succeeded)
+                {
+                    if (Request.Query.Keys.Contains("ReturnUrl"))
+                    {
+                       
+                        RedirectToAction(Request.Query["ReturnUrl"].First());
+                    }
+                    return Ok();
+
+                }
+                else
+                {
+                    return BadRequest();
+                    //RedirectToAction("Shop", "App");
+                }
+            }
+            //ModelState.AddModelError("", "Failed to Create New User");
+            return BadRequest();
+        }
+
         [HttpGet]
         public async Task<IActionResult> Logout()
         {
