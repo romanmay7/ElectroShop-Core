@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 // import custom validator to validate that password and confirm password fields match
 import { MustMatch } from '../../helpers/must-match.validator';
+import { CustomValidators } from '../../helpers/custom-validators';
 
 @Component({
   selector: 'app-signup',
@@ -24,7 +25,13 @@ export class SignupComponent implements OnInit {
             lastName: ['', Validators.required],
             userName: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
-            password: ['', [Validators.required, Validators.minLength(6)]],
+            password: ['', [Validators.required, Validators.minLength(6),
+                // 2. check whether the entered password has a number
+                CustomValidators.patternValidator(/\d/, { hasNumber: true }),
+                // 3. check whether the entered password has upper case letter
+                CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+                // 4. check whether the entered password has a lower-case letter
+                CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }),]],
             confirmPassword: ['', Validators.required]
         }, {
             validator: MustMatch('password', 'confirmPassword')

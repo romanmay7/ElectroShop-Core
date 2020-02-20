@@ -42,6 +42,15 @@
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback form-input-error">
                             <div *ngIf="f.password.errors.required">Password is required</div>
                             <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            <label class="text-danger" *ngIf="f.password.hasError('hasNumber')">
+                                Must have at least 1 number!
+                            </label>
+                            <label class="text-danger" *ngIf="f.password.hasError('hasCapitalCase')">
+                                Must contain at least 1 in Capital Case!!
+                            </label>
+                            <label class="text-danger" *ngIf="f.password.hasError('hasSmallCase')">
+                                Must contain at least 1 in Lower Case!!
+                            </label>
                         </div>
                      </div>
 
