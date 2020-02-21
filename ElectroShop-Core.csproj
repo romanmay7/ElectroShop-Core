@@ -21,9 +21,9 @@
     <PackageReference Include="OdeToCode.UseNodeModules" Version="3.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="node_modules\" />
-  </ItemGroup>
+   <ItemGroup>
+    <Content Include="node_modules\**" CopyToPublishDirectory="PreserveNewest" />
+   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\clientapp\assets\.gitkeep" />
