@@ -81,7 +81,7 @@ namespace ElectroShop_Core.Data
             }
         }
 
-        public IEnumerable<Order> GetAllOrdersByUser(string username, bool includeItems)
+        public IEnumerable<Order> GetAllOrdersByUser(string user_id, bool includeItems)
         {
             try
             {
@@ -90,7 +90,7 @@ namespace ElectroShop_Core.Data
                     _logger.LogInformation("GetAllOrders");
 
                     return _context.Orders
-                        .Where(o => o.User.UserName == username)
+                        .Where(o => o.User.Id == user_id)
                         .Include(o => o.Items)
                         .ThenInclude(i => i.Product)
                         .ToList();
@@ -106,12 +106,12 @@ namespace ElectroShop_Core.Data
                 return null;
             }
         }
-        public Order GetOrderById(string username, int id)
+        public Order GetOrderById( int id)
         {
             return _context.Orders
                 .Include(o => o.Items)
                 .ThenInclude(i => i.Product)
-                .Where(o => o.Id == id && o.User.UserName == username)
+                .Where(o => o.Id == id)
                 .FirstOrDefault();
         }
 

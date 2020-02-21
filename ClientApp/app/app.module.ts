@@ -18,6 +18,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SignupComponent } from './components/signup/signup.component';
     FilterPipe,
     CheckoutComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

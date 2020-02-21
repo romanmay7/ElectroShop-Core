@@ -12,8 +12,9 @@
                             <li class="nav-link"><a href="#"><i class="fa fa-dollar"></i>{{ itemService.subtotal() | currency:'USD':true }}</a></li>
                             <li *ngIf="!itemService.loggedIn" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/login']"><i class="fa fa-sign-in"></i>Login</a></li>
                             <li *ngIf="itemService.loggedIn"><button (click)="logOut()">Logout</button>
-                            <li *ngIf="itemService.loggedIn"class="nav-link"><a href="#"><i class="fa fa-user-o"></i> Logged as {{itemService.username}}</a></li>
+                            <li *ngIf="itemService.loggedIn" class="nav-link"><a href="#"><i class="fa fa-user-o"></i> Logged as {{itemService.username}}</a></li>
                             <li class="nav-link"><a [routerLink]="['/index']"><i class="fa fa-home"></i>Home</a></li>
+                            <li class="nav-link"><a [routerLink]="['/orders']"><i class="fa fa-list"></i>Orders</a></li>
                             <li class="nav-link"><a [routerLink]="['/about']"><i class="fa fa-info"></i>About</a></li>
                             <li class="nav-link"><a [routerLink]="['/contact']"><i class="fa fa-address-book"></i>Contact</a></li>
                         </ul>

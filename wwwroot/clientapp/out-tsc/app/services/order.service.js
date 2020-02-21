@@ -10,24 +10,38 @@ let OrderService = class OrderService {
         this.token = "";
     }
     prepareNewOrder() {
-        this.order = new Order();
+        this.new_order = new Order();
         var today = new Date();
         var dd = String(today.getDate()).padStart(2, '0');
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear();
-        this.order.orderNumber = "ORD-" + mm + '-' + dd + '-' + yyyy;
-        this.order.orderDate = mm + '-' + dd + '-' + yyyy;
-        this.order.items = this.itemService.items;
+        this.new_order.orderNumber = "ORD-" + mm + '-' + dd + '-' + yyyy;
+        this.new_order.orderDate = mm + '-' + dd + '-' + yyyy;
+        this.new_order.items = this.itemService.items;
+    }
+    loadOrders() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            this.ordersList = yield this.http.get("/api/orders", {
+                headers: new HttpHeaders().set("Authorization", "Bearer " + this.token)
+                    .set('Content-Type', 'application/json; charset=utf-8')
+            }).toPromise();
+        });
+    }
+    findAll() {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield this.loadOrders();
+            return this.ordersList;
+        });
     }
     checkout() {
         this.prepareNewOrder();
-        return this.http.post("api/Orders", this.order, {
+        return this.http.post("api/Orders", this.new_order, {
             headers: new HttpHeaders().set("Authorization", "Bearer " + this.token)
                 .set('Content-Type', 'application/json; charset=utf-8')
         })
             .pipe(map(response => {
             alert("Your Order was Submited,Thank you!");
-            this.order = new Order(); //Reset Order
+            this.new_order = new Order(); //Reset Order
             this.itemService.items = []; //Reset Shopping Cart
             localStorage.removeItem('cart'); //Reset Local storage
             return true;

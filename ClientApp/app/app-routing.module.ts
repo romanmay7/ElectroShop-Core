@@ -9,6 +9,7 @@ import { AboutComponent } from './components/about/about.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
    {path:'',component:IndexComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'login', component: LoginComponent },
     { path: 'checkout', component: CheckoutComponent },
-    { path: 'signup', component: SignupComponent},
+    { path: 'signup', component: SignupComponent },
+    { path: 'orders', component: OrdersComponent },
    {path:'**',redirectTo:''}
 
 ];

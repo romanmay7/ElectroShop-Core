@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace ElectroShop_Core.Controllers
 {
@@ -35,14 +36,22 @@ namespace ElectroShop_Core.Controllers
         }
         //Get Orders List from DB
         [HttpGet]
-        public ActionResult<IEnumerable<Order>> Get(bool includeItems = true)
+        //public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Get(bool includeItems = true)
         {
             try
             {
-                var username = User.Identity.Name;
-                var results = _repository.GetAllOrdersByUser(username, includeItems);
+                //var username = User.Identity.Name; //one way
+                //var username = _userManager.GetUserId(User); //other way
 
-                return Ok(_mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(_repository.GetAllOrders(includeItems)));
+                ClaimsPrincipal currentUser = this.User; //get current logged in user
+                var currentUserEmail = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                StoreUser user = await _userManager.FindByEmailAsync(currentUserEmail);
+
+
+                var result = _mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(_repository.GetAllOrdersByUser(user.Id, includeItems));
+                return Ok(result);
+                //return Ok(_mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(_repository.GetAllOrders(includeItems)));
             }
             catch (Exception ex)
             {
@@ -56,10 +65,8 @@ namespace ElectroShop_Core.Controllers
         {
             try
             {
-                var username = User.Identity.Name;
-                var results = _repository.GetAllOrdersByUser(username, includeItems);
 
-                var order = _repository.GetOrderById(username, id);
+                var order = _repository.GetOrderById(id);
                 if (order != null)
                 {
                     //using IMapper to map Order OrderViewModel,because we always want to return a view model
@@ -97,11 +104,18 @@ namespace ElectroShop_Core.Controllers
                         newOrder.OrderDate = DateTime.Now;
                     }
 
+                    //Add UserId to the Order
+                    ClaimsPrincipal currentUser = this.User; //get current logged in user
+                    var currentUserEmail = currentUser.FindFirst(ClaimTypes.NameIdentifier).Value;
+                    StoreUser user = await _userManager.FindByEmailAsync(currentUserEmail);
+
+                    newOrder.User = user;
+
 
                     //ADDING TO REPOSITORY
 
                     // _repository.AddEntity(newOrder);
-                     _repository.AddOrder(newOrder);
+                    _repository.AddOrder(newOrder);
 
                     //mapping  back from OrderModel to OrderViewModel,using IMapper 
                     //Returning our View Model with 201 code
