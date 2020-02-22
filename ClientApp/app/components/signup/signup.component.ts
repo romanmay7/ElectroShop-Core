@@ -26,12 +26,15 @@ export class SignupComponent implements OnInit {
             userName: ['', Validators.required],
             email: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6),
-                // 2. check whether the entered password has a number
+                // 1. check whether the entered password has a number
                 CustomValidators.patternValidator(/\d/, { hasNumber: true }),
-                // 3. check whether the entered password has upper case letter
+                // 2. check whether the entered password has upper case letter
                 CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
-                // 4. check whether the entered password has a lower-case letter
-                CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }),]],
+                // 3. check whether the entered password has a lower-case letter
+                CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }),
+                // 4. check whether the entered password has a Special Character
+                CustomValidators.patternValidator(/[!@#$%^&*(),.?":{}|<>]/, { hasSpecialCharacters: true })
+             ]],
             confirmPassword: ['', Validators.required]
         }, {
             validator: MustMatch('password', 'confirmPassword')
