@@ -22,7 +22,12 @@ export class CheckoutComponent implements OnInit {
         public orderService: OrderService
     ) { }
 
-  ngOnInit() {
+    ngOnInit() {
+        if (this.orderService.loginRequired)
+        {
+            //Force Login
+            this.router.navigate(["login"])
+        } 
   }
     errorMessage: string = ""
 
