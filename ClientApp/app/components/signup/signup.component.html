@@ -51,6 +51,9 @@
                             <label class="text-danger" *ngIf="f.password.hasError('hasSmallCase')">
                                 Must contain at least 1 in Lower Case!!
                             </label>
+                            <label class="text-danger" *ngIf="f.password.hasError('hasSpecialCharacters')">
+                                Must contain at least 1  Special Character!!
+                            </label>
                         </div>
                      </div>
 
