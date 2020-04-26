@@ -4,6 +4,10 @@
 Technologies used :JWT Authentication,Entity Framework,WEB API,AutoMapper,AspNetCore.Identity,
 Angular Custom Validators,ReactiveFormsModule,NgxPaginationModule,HttpClientModule,RouterModule,Router
 
+### Demo Video Link
+
+https://www.youtube.com/watch?v=yVKC75C6N6M
+
 ### ElectroShop is hosted on Azure!
 
 https://electroshop.azurewebsites.net
